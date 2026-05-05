@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agro Marketing</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f2f2f2;
+}
+
+/* HEADER */
+header{
+    background:linear-gradient(to right, green, #00c853);
+    color:white;
+    padding:48px 9px;
+    position:relative;
+    text-align:center;
+}
+
+/* LOGO HEJURU */
+.logo{
+    position:absolute;
+    left:20px;
+    top:10px;
+}
+
+/* LOGO CLICKABLE */
+.logo a{
+    display:block;
+}
+
+.logo img{
+    width:90px;
+    height:90px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+/* IZINA MUNSI YA LOGO */
+.brand-name{
+    position:absolute;
+    left:20px;
+    top:110px;
+    font-size:14px;
+    font-weight:bold;
+    color:#e8f0e8;
+}
+
+nav{
+    background:#222;
+    padding:15px;
+    text-align:center;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+nav ul li{
+    margin:10px 15px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav ul li a:hover{
+    color:yellow;
+}
+
+.hero img{
+    width:100%;
+    height:400px;
+    object-fit:cover;
+}
+
+.section{
+    padding:50px 20px;
+    text-align:center;
+}
+
+/* PRODUCTS */
+.products-container{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap:25px;
+    margin-top:30px;
+}
+
+.product-card{
+    background:white;
+    border-radius:12px;
+    padding:15px;
+    text-align:center;
+}
+
+.product-card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.product-card button{
+    background:#1b5e20;
+    color:white;
+    border:none;
+    padding:10px;
+    margin:5px;
+    border-radius:8px;
+}
+
+/* CART */
+table{
+    width:100%;
+    background:white;
+    border-collapse:collapse;
+}
+
+th, td{
+    border:1px solid #ddd;
+    padding:10px;
+    text-align:center;
+}
+
+/* ORDER BOX */
+.order-box{
+    background:white;
+    padding:10px;
+    margin:10px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* INPUT */
+input, select{
+    padding:10px;
+    margin:5px;
+    width:80%;
+}
+
+/* ========================= */
+/* RESPONSIVE DESIGN */
+/* ========================= */
+
+/* Tablets */
+@media (max-width: 992px){
+    header{
+        padding:40px 10px;
+    }
+
+    .logo img{
+        width:70px;
+        height:70px;
+    }
+
+    .hero img{
+        height:250px;
+    }
+
+    input, select{
+        width:95%;
+    }
+}
+
+/* Phones */
+@media (max-width: 600px){
+
+    .brand-name{
+        position:static;
+        display:block;
+        margin-bottom:10px;
+    }
+
+    .logo{
+        position:static;
+        margin-bottom:10px;
+    }
+
+    header{
+        padding:20px 10px;
+    }
+
+    nav ul{
+        flex-direction:column;
+    }
+
+    nav ul li{
+        margin:10px 0;
+    }
+
+    .hero img{
+        height:200px;
+    }
+
+    table{
+        font-size:12px;
+    }
+
+    th, td{
+        padding:5px;
+    }
+
+    input, select{
+        width:100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="logo">
+        <a href="website.html">
+            <img src="image anastase.png">
+        </a>
+    </div>
+
+    <div class="brand-name">RW-RULINDO AGRO MARKETING</div>
+
+    <h1>WELCOME TO AGRO MARKETING</h1>
+    <p>Your best place for farming business</p>
+</header>
+
+<nav>
+<ul>
+<li><a href="website.html">Home</a></li>
+<li><a href="shop.html">Shop</a></li>
+<li><a href="cart.html">Cart</a></li>
+<li><a href="orders.html">Orders</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="help.html">help</a></li>
+</ul>
+</nav>
+
+<!-- PRODUCTS 12 -->
+<section class="section">
+<h2>Products</h2>
+
+<div class="products-container">
+
+<div class="product-card">
+<img src="aaa.jpg">
+<h3>potatoes</h3>
+<p>500</p>
+<button onclick="addToCart('potatoes',500,'aaa.jpg')">Add</button>
+</div>
+
+<div class="product-card">
+<img src="bbb.jpg">
+<h3>maize</h3>
+<p>700</p>
+<button onclick="addToCart('maize',700,'bbb.jpg')">Add</button>
+</div>
+
+<div class="product-card">
+<img src="ccc.jpg">
+<h3>beans</h3>
+<p>400</p>
+<button onclick="addToCart('beans',400,'ccc.jpg')">Add</button>
+</div>
+
+<div class="product-card">
+<img src="ddd.jpg">
+<h3>beans of seed</h3>
+<p>600</p>
+<button onclick="addToCart('beans of seed',600,'ddd.jpg')">Add</button>
+</div>
+
+<div class="product-card">
+<img src="eee.jpg">
+<h3>cassava</h3>
+<p>800</p>
+<button onclick="addToCart('cassava',800,'eee.jpg')">Add</button>
+</div>
+
+<div class="product-card">
+<img src="fff.jpg">
+<h3>Cassava</h3>
+<p>300</p>
+<button onclick="addToCart('Cassava',300,'fff.jpg')">Add</button>
+</div>
+
+<div class="product-card">
+<img src="ggg.jpg">
+<h3>tomatoes</h3>
+<p>650</p>
+<button onclick="addToCart('tomatoes',650,'ggg.jpg')">Add</button>
+</div>
+
+<div class="product-card">
+<img src="hhh.jpg">
+<h3>onions</h3>
+<p>500</p>
+<button onclick="addToCart('onions',500,'hhh.jpg')">Add</button>
+</div>
+
+<div class="product-card">
+<img src="iii.jpg">
+<h3>Cabbage</h3>
+<p>300</p>
+<button onclick="addToCart('Cabbage',300,'iii.jpg')">Add</button>
+</div>
+
+<div class="product-card">
+<img src="jjj.jpg">
+<h3>vocadoes</h3>
+<p>400</p>
+<button onclick="addToCart('vocadoes',400,'jjj.jpg')">Add</button>
+</div>
+
+<div class="product-card">
+<img src="kkk.jpg">
+<h3>magoes</h3>
+<p>200</p>
+<button onclick="addToCart('mangoes',200,'kkk.jpg')">Add</button>
+</div>
+
+<div class="product-card">
+<img src="fruit.jpg">
+<h3>fruits</h3>
+<p>500</p>
+<button onclick="addToCart('fruit',500,'lll.jpg')">Add</button>
+</div>
+
+<div class="product-card">
+<img src="TOMATOES.PNG">
+<h3>tomatoes</h3>
+<p>500</p>
+<button onclick="addToCart('tomatoes',500,'lll.jpg')">Add</button>
+</div>
+
+<div class="product-card">
+<img src="maize.jpg">
+<h3>maize</h3>
+<p>500</p>
+<button onclick="addToCart('maize',500,'lll.jpg')">Add</button>
+</div>
+
+</div>
+</section>
+
+<!-- CART -->
+<section class="section">
+<h2>Cart</h2>
+
+<table>
+<thead>
+<tr>
+<th>Image</th>
+<th>Name</th>
+<th>Price</th>
+<th>Qty</th>
+<th>Subtotal</th>
+<th>Remove</th>
+</tr>
+</thead>
+<tbody id="cart-body"></tbody>
+</table>
+
+<h3>Total: <span id="total">0</span></h3>
+</section>
+
+<!-- CHECKOUT -->
+<section class="section">
+<h2>Checkout Form</h2>
+
+<input id="name" placeholder="Customer Name">
+<input id="phone" placeholder="Phone (07XXXXXXXX)">
+<input id="address" placeholder="Address">
+<input type="date" id="date">
+
+<select id="payment">
+<option>Cash on Delivery</option>
+<option>Mobile Money</option>
+</select>
+
+<br>
+<button onclick="placeOrder()">Place Order</button>
+</section>
+
+<!-- ORDERS -->
+<section class="section">
+<h2>Order History</h2>
+<div id="orders"></div>
+</section>
+
+<script>
+let cartItems = [];
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+function addToCart(name, price, image){
+    let item = cartItems.find(i=>i.name===name);
+    if(item){
+        item.quantity++;
+    }else{
+        cartItems.push({name, price, image, quantity:1});
+    }
+    updateCart();
+}
+
+function updateCart(){
+    let body = document.getElementById("cart-body");
+    body.innerHTML="";
+    let total=0;
+
+    cartItems.forEach(item=>{
+        let sub = item.price * item.quantity;
+        total += sub;
+
+        body.innerHTML += `
+        <tr>
+            <td><img src="${item.image}" width="50"></td>
+            <td>${item.name}</td>
+            <td>${item.price}</td>
+            <td>${item.quantity}</td>
+            <td>${sub}</td>
+            <td><button onclick="removeItem('${item.name}')">X</button></td>
+        </tr>`;
+    });
+
+    document.getElementById("total").innerText=total;
+}
+
+function removeItem(name){
+    cartItems = cartItems.filter(i=>i.name!==name);
+    updateCart();
+}
+
+function placeOrder(){
+    let order={
+        id:"ORD"+Date.now(),
+        date:new Date().toLocaleString(),
+        customer:document.getElementById("name").value,
+        phone:document.getElementById("phone").value,
+        address:document.getElementById("address").value,
+        payment:document.getElementById("payment").value,
+        items:cartItems,
+        total:document.getElementById("total").innerText,
+        status:"pending"
+    };
+
+    orders.push(order);
+    localStorage.setItem("orders",JSON.stringify(orders));
+
+    alert("Order placed: "+order.id);
+
+    cartItems=[];
+    updateCart();
+    showOrders();
+}
+
+function showOrders(){
+    let div=document.getElementById("orders");
+    div.innerHTML="";
+
+    orders.forEach(o=>{
+        div.innerHTML+=`
+        <div class="order-box" onclick="alert(JSON.stringify(${JSON.stringify(o)}))">
+            <b>${o.id}</b><br>
+            ${o.date}<br>
+            Total: ${o.total}<br>
+            Status: ${o.status}
+        </div>`;
+    });
+}
+
+showOrders();
+</script>
+<footer style="background:#000; color:#fff; text-align:center; padding:20px; margin-top:40px;">
+    <p>RW-Rulindo Agro Marketing Cooperative</p>
+    <p>Rulindo District, Northern Province, Rwanda</p>
+    <p>Phone: +250 788 123 456</p>
+    <p>Email: info@rulindooagro.rwa</p>
+
+    <div style="margin-top:15px;">
+        <a href="https://facebook.com" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">📘 Facebook</a>
+        <a href="https://wa.me/250788123456" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">📱 WhatsApp</a>
+        <a href="https://twitter.com" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">🐦 Twitter</a>
+        <a href="https://www.instagram.com/" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">📸 Instagram</a>
+    </div>
+</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agro Marketing</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f2f2f2;
+}
+
+/* HEADER */
+header{
+    background:linear-gradient(to right, green, #00c853);
+    color:white;
+    padding:48px 9px;
+    position:relative;
+    text-align:center;
+}
+
+/* LOGO */
+.logo{
+    position:absolute;
+    left:20px;
+    top:10px;
+}
+
+.logo img{
+    width:90px;
+    height:90px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.brand-name{
+    position:absolute;
+    left:20px;
+    top:110px;
+    font-size:14px;
+    font-weight:bold;
+    color:#f0f4f0;
+}
+
+/* NAV */
+nav{
+    background:#1f1f1f;
+    padding:15px;
+    text-align:center;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+nav ul li{
+    margin:10px 15px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav ul li a:hover{
+    color:yellow;
+}
+
+/* GAME */
+h1{
+    color:rgb(239, 245, 239);
+    text-align:center;
+    margin-top:20px;
+}
+h2{
+    color:rgb(22, 23, 22);
+    text-align:center;
+    margin-top:20px;
+}
+#gameArea{
+    width:90%;
+    height:400px;
+    margin:auto;
+    border:2px solid green;
+    position:relative;
+    overflow:hidden;
+    background:rgb(25, 158, 132);
+}
+
+.item{
+    width:60px;
+    position:absolute;
+    cursor:pointer;
+}
+
+button{
+    padding:10px;
+    margin:5px;
+    background:green;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+button:hover{
+    background:darkgreen;
+}
+
+/* FOOTER */
+footer{
+    background:#000;
+    color:#edf0f5;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+/* hidden class (for search system) */
+.hide{
+    display:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        <a href="website.html">
+            <img src="image anastase.png">
+        </a>
+    </div>
+
+    <div class="brand-name">RW-RULINDO AGRO MARKETING</div>
+
+    <h1>WELCOME TO AGRO MARKETING</h1>
+    <p>Your best place for farming business</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="website.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="orders.html">Orders</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="help.html">Help</a></li>
+    </ul>
+</nav>
+
+<h2>Agro Marketing Game</h2>
+<h2>go to start </h2>
+<div style="text-align:center;">
+<button onclick="startGame()">Start</button>
+<button onclick="stopGame()">Stop</button>
+<button onclick="resumeGame()">Resume</button>
+</div>
+
+<h3 style="text-align:center;">Score: <span id="score">0</span></h3>
+<h3 style="text-align:center;">Missed: <span id="missed">0</span></h3>
+
+<div id="gameArea"></div>
+
+
+
+<script>
+
+let score = 0;
+let missed = 0;
+let running = false;
+let gameInterval = null;
+
+const images = [
+"mmm.jpg","beans.png","maize.png",
+"cassava.png","cabbage.png",
+"aaa.jpg","bbb.jpg","ccc.jpg","ddd.jpg",
+"eee.jpg","fff.jpg","ggg.jpg","hhh.jpg","iii.jpg"
+];
+
+function updateUI(){
+    document.getElementById("score").innerText = score;
+    document.getElementById("missed").innerText = missed;
+}
+
+function gameOver(){
+    running = false;
+    clearInterval(gameInterval);
+    gameInterval = null;
+
+    document.getElementById("gameArea").innerHTML = "";
+
+    alert("💀 GAME OVER!\nlose 10 products\nScore: " + score);
+}
+
+function createItem(){
+    let item = document.createElement("img");
+    item.className = "item";
+
+    let img = images[Math.floor(Math.random() * images.length)];
+    item.src = img;
+
+    item.style.left = Math.random() * 80 + "%";
+    item.style.top = "0px";
+
+    document.getElementById("gameArea").appendChild(item);
+
+    let fall = setInterval(()=>{
+
+        item.style.top = item.offsetTop + 2 + "px";
+
+        if(item.offsetTop > 350){
+            item.remove();
+            clearInterval(fall);
+
+            missed++;
+            updateUI();
+
+            if(missed >= 10){
+                gameOver();
+            }
+        }
+
+    },50);
+
+    item.onclick = ()=>{
+        score++;
+        updateUI();
+        item.remove();
+        clearInterval(fall);
+    }
+}
+
+function startGame(){
+    if(running) return;
+
+    score = 0;
+    missed = 0;
+    updateUI();
+
+    running = true;
+    gameInterval = setInterval(createItem, 1000);
+}
+
+function stopGame(){
+    running = false;
+    clearInterval(gameInterval);
+    gameInterval = null;
+}
+
+function resumeGame(){
+    if(!running && missed < 10){
+        running = true;
+        gameInterval = setInterval(createItem, 1000);
+    }
+}
+
+</script>
+<footer style="background:#000; color:#fff; text-align:center; padding:20px; margin-top:40px;">
+    <p>RW-Rulindo Agro Marketing Cooperative</p>
+    <p>Rulindo District, Northern Province, Rwanda</p>
+    <p>Phone: +250 788 123 456</p>
+    <p>Email: info@rulindooagro.rwa</p>
+
+    <div style="margin-top:15px;">
+        <a href="https://facebook.com" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">📘 Facebook</a>
+        <a href="https://wa.me/250788123456" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">📱 WhatsApp</a>
+        <a href="https://twitter.com" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">🐦 Twitter</a>
+        <a href="https://www.instagram.com/" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">📸 Instagram</a>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agro Marketing</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f2f2f2;
+}
+
+/* HEADER */
+header{
+    background:linear-gradient(to right, green, #00c853);
+    color:white;
+    padding:48px 9px;
+    position:relative;
+    text-align:center;
+}
+
+/* LOGO HEJURU */
+.logo{
+    position:absolute;
+    left:20px;
+    top:10px;
+}
+
+/* LOGO CLICKABLE */
+.logo a{
+    display:block;
+}
+
+.logo img{
+    width:90px;
+    height:90px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+/* IZINA MUNSI YA LOGO */
+.brand-name{
+    position:absolute;
+    left:20px;
+    top:110px;
+    font-size:14px;
+    font-weight:bold;
+    color:#f3faf3;
+}
+
+nav{
+    background:#222;
+    padding:15px;
+    text-align:center;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+nav ul li{
+    margin:10px 15px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav ul li a:hover{
+    color:yellow;
+}
+/* CONTACT SOCIAL LINKS */
+.social a{
+    display:block;
+    margin:6px 0;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* ========================= */
+/* RESPONSIVE DESIGN (ADDED) */
+/* ========================= */
+
+@media(max-width:768px){
+
+    header{
+        padding:80px 20px 40px;
+    }
+
+    .brand-name{
+        position:static;
+        display:block;
+        text-align:center;
+        margin-bottom:10px;
+    }
+
+    .logo{
+        position:static;
+        text-align:center;
+        margin-bottom:10px;
+    }
+
+    .logo img{
+        width:70px;
+        height:70px;
+    }
+
+    nav ul{
+        flex-direction:column;
+    }
+
+    nav ul li{
+        margin:10px 0;
+    }
+
+    section div{
+        flex-direction:column !important;
+        align-items:center;
+    }
+}
+
+@media(max-width:480px){
+
+    h1{
+        font-size:22px;
+    }
+
+    header p{
+        font-size:14px;
+    }
+
+    nav ul li a{
+        font-size:14px;
+    }
+
+    input, textarea, button{
+        font-size:14px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <a href="website.html">
+            <img src="image anastase.png">
+        </a>
+    </div>
+
+    <div class="brand-name">RW-RULINDO AGRO MARKETING</div>
+
+    <h1>WELCOME TO AGRO MARKETING</h1>
+    <p>Your best place for farming business</p>
+</header>
+
+<nav>
+    <ul>
+         <li><a href="website.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="orders.html">Orders</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="help.html">help</a></li>
+    </ul>
+</nav>
+
+<!-- CONTACT SECTION -->
+<section id="contact" style="padding:40px 20px; background:#fff; margin-top:10px;">
+
+<h2 style="text-align:center; color:green; margin-bottom:20px;">Contact Us</h2>
+
+<div style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center;">
+
+    <!-- FORM -->
+    <div style="flex:1; min-width:280px; background:#f9f9f9; padding:20px; border-radius:10px;">
+        <h3>Send Message</h3>
+
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Name" required
+            style="width:100%; padding:10px; margin:8px 0;">
+
+            <input type="email" id="email" placeholder="Email" required
+            style="width:100%; padding:10px; margin:8px 0;">
+
+            <input type="text" id="phone" placeholder="Phone" required
+            style="width:100%; padding:10px; margin:8px 0;">
+
+            <textarea id="message" placeholder="Message" required
+            style="width:100%; padding:10px; margin:8px 0; height:100px;"></textarea>
+
+            <button type="submit"
+            style="width:100%; padding:10px; background:green; color:white; border:none; cursor:pointer;">
+                Send Message
+            </button>
+        </form>
+    </div>
+
+    <!-- INFO -->
+    <div style="flex:1; min-width:280px; background:#f9f9f9; padding:20px; border-radius:10px;">
+        <h3>Contact Information</h3>
+
+        <p><b>Address:</b><br>
+        RW-Rulindo Agro Marketing Cooperative,<br>
+        Rulindo District, Northern Province, Rwanda</p>
+
+        <p><b>Phone:</b> +250788123456</p>
+        <p><b>Email:</b> info@rulindoagro.rw</p>
+
+        <!-- SOCIAL MEDIA -->
+        <div class="social" style="margin-top:15px;">
+            <h4>Follow Us</h4>
+
+            <a href="https://www.facebook.com" target="_blank" style="color:#1877f2;">📘 Facebook</a>
+            <a href="https://wa.me/250788123456" target="_blank" style="color:#25D366;">📱 WhatsApp</a>
+            <a href="https://twitter.com" target="_blank" style="color:#1DA1F2;">🐦 Twitter</a>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#000; color:#fff; text-align:center; padding:20px; margin-top:40px;">
+<p>RW-Rulindo Agro Marketing Cooperative</p>
+<p>Rulindo District, Northern Province, Rwanda</p>
+<p>Phone: +250 788 123 456</p>
+<p>Email: info@rulindooagro.rwa</p>
+
+<div style="margin-top:15px;">
+<a href="https://facebook.com" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">📘 Facebook</a>
+<a href="https://wa.me/250788123456" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">📱 WhatsApp</a>
+<a href="https://twitter.com" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">🐦 Twitter</a>
+<a href="https://www.instagram.com/" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">📸 Instagram</a>
+</div>
+</footer>
+
+<!-- JS -->
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let data = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        message: document.getElementById("message").value
+    };
+
+    let messages = JSON.parse(localStorage.getItem("messages")) || [];
+    messages.push(data);
+    localStorage.setItem("messages", JSON.stringify(messages));
+
+    console.log("Message saved:", data);
+
+    alert("Message sent successfully!");
+
+    this.reset();
+});
+</script>
+
+</body>
+</html>

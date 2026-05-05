@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agro Marketing</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f2f2f2;
+}
+
+/* HEADER */
+header{
+    background:linear-gradient(to right, green, #00c853);
+    color:white;
+    padding:48px 9px;
+    position:relative;
+    text-align:center;
+}
+
+/* LOGO HEJURU */
+.logo{
+    position:absolute;
+    left:20px;
+    top:10px;
+}
+
+/* LOGO CLICKABLE */
+.logo a{
+    display:block;
+}
+
+.logo img{
+    width:90px;
+    height:90px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+/* IZINA MUNSI YA LOGO */
+.brand-name{
+    position:absolute;
+    left:20px;
+    top:110px;
+    font-size:14px;
+    font-weight:bold;
+    color:#e8f7e8;
+}
+
+nav{
+    background:#222;
+    padding:15px;
+    text-align:center;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+nav ul li{
+    margin:10px 15px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav ul li a:hover{
+    color:yellow;
+}
+
+/* ABOUT LAYOUT */
+.about-container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+/* MAIN CONTENT */
+.about-main{
+    flex:2;
+    min-width:300px;
+}
+
+/* ASIDE ARTICLE */
+.about-aside{
+    flex:1;
+    min-width:250px;
+    background:#f9f9f9;
+    padding:15px;
+    border-left:4px solid green;
+}
+
+/* ========================= */
+/* RESPONSIVE DESIGN (ADDED) */
+/* ========================= */
+
+@media(max-width:768px){
+
+    header{
+        padding:80px 20px 40px;
+    }
+
+    .brand-name{
+        position:static;
+        display:block;
+        text-align:center;
+        margin-bottom:10px;
+    }
+
+    .logo{
+        position:static;
+        text-align:center;
+        margin-bottom:10px;
+    }
+
+    .logo img{
+        width:70px;
+        height:70px;
+    }
+
+    nav ul{
+        flex-direction:column;
+    }
+
+    nav ul li{
+        margin:10px 0;
+    }
+
+    .about-container{
+        flex-direction:column;
+    }
+
+    .about-aside{
+        border-left:none;
+        border-top:4px solid green;
+    }
+}
+
+@media(max-width:480px){
+
+    h1{
+        font-size:22px;
+    }
+
+    header p{
+        font-size:14px;
+    }
+
+    nav{
+        padding:10px;
+    }
+
+    nav ul li a{
+        font-size:14px;
+    }
+
+    .about-main,
+    .about-aside{
+        min-width:100%;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+     <div class="logo">
+        <a href="website.html">
+            <img src="image anastase.png">
+        </a>
+    </div>
+
+    <div class="brand-name">RW-RULINDO AGRO MARKETING</div>
+
+    <h1>WELCOME TO AGRO MARKETING</h1>
+    <p>Your best place for farming business</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="website.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="orders.html">Orders</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="help.html">help</a></li>
+    </ul>
+</nav>
+
+<!-- ABOUT SECTION -->
+<section id="about" style="padding:40px 20px; background:white; margin-top:10px;">
+
+<h2 style="text-align:center; margin-bottom:20px; color:green;">
+About Rulindo Agro Marketing
+</h2>
+
+<div class="about-container">
+
+    <!-- MAIN CONTENT -->
+    <div class="about-main">
+
+        <h3>1. About Rulindo District</h3>
+        <p><b>Location:</b> Rulindo District is located in the Northern Province of Rwanda.</p>
+        <p><b>Climate:</b> It has a cool climate with sufficient rainfall.</p>
+        <p><b>Main Crops:</b> Potatoes, beans, maize, cassava, tea.</p>
+
+        <br>
+
+        <h3>2. Cooperative Mission & Vision</h3>
+        <p><b>Mission:</b> To promote sustainable agriculture and trade.</p>
+        <p><b>Vision:</b> To become a strong and reliable agricultural cooperative.</p>
+
+        <br>
+
+        <h3>3. Sample Farmers</h3>
+        <ul>
+            <li><b>Jean Claude</b> - Potatoes - 8 years experience</li>
+            <li><b>Marie Claire</b> - Beans - 5 years experience</li>
+            <li><b>Emmanuel</b> - Maize - 10 years experience</li>
+            <li><b>Aline</b> - Cassava - 6 years experience</li>
+            <li><b>Patrick</b> - Tea - 12 years experience</li>
+        </ul>
+
+        <br>
+
+        <h3>4. Rulindo Map</h3>
+        <img src="map.png" alt="Rulindo Map"
+        style="width:100%; max-width:500px; border-radius:10px;">
+
+    </div>
+
+    <!-- ASIDE ARTICLE -->
+    <aside class="about-aside">
+        <h3>summary</h3>
+        <p>
+        Rulindo District is one of the most productive agricultural regions in Rwanda.
+        It benefits from fertile soils and favorable climate conditions that support
+        various crops including potatoes, maize, and beans.
+        </p>
+
+        <p>
+        The cooperative plays an important role in connecting farmers to markets,
+        improving income, and promoting modern farming techniques.
+        </p>
+    </aside>
+
+</div>
+
+</section>
+
+<footer style="background:#000; color:#fff; text-align:center; padding:20px; margin-top:40px;">
+    <p>RW-Rulindo Agro Marketing Cooperative</p>
+    <p>Rulindo District, Northern Province, Rwanda</p>
+    <p>Phone: +250 788 123 456</p>
+    <p>Email: info@rulindooagro.rwa</p>
+
+    <div style="margin-top:15px;">
+        <a href="https://facebook.com" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">📘 Facebook</a>
+        <a href="https://wa.me/250788123456" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">📱 WhatsApp</a>
+        <a href="https://twitter.com" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">🐦 Twitter</a>
+        <a href="https://www.instagram.com/" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">📸 Instagram</a>
+    </div>
+</footer>
+
+</body>
+</html>
