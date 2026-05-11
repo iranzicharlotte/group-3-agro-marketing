@@ -12,12 +12,9 @@
     box-sizing:border-box;
     font-family:Arial, sans-serif;
 }
-
 body{
     background:#f2f2f2;
 }
-
-/* HEADER */
 header{
     background:linear-gradient(to right, green, #00c853);
     color:white;
@@ -25,8 +22,6 @@ header{
     position:relative;
     text-align:center;
 }
-
-/* LOGO */
 .logo{
     position:absolute;
     left:20px;
@@ -49,7 +44,6 @@ header{
     color:#f0f4f0;
 }
 
-/* NAV */
 nav{
     background:#1f1f1f;
     padding:15px;
@@ -117,7 +111,6 @@ button:hover{
     background:darkgreen;
 }
 
-/* FOOTER */
 footer{
     background:#000;
     color:#edf0f5;
@@ -126,7 +119,6 @@ footer{
     margin-top:40px;
 }
 
-/* hidden class (for search system) */
 .hide{
     display:none;
 }
@@ -171,18 +163,12 @@ footer{
 
 <h3 style="text-align:center;">Score: <span id="score">0</span></h3>
 <h3 style="text-align:center;">Missed: <span id="missed">0</span></h3>
-
 <div id="gameArea"></div>
-
-
-
 <script>
-
 let score = 0;
 let missed = 0;
 let running = false;
 let gameInterval = null;
-
 const images = [
 "mmm.jpg","beans.png","maize.png",
 "cassava.png","cabbage.png",
