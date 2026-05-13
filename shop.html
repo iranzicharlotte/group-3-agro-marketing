@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Agro Marketing</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 body{
     background:#f2f2f2;
+    overflow-x:hidden;
 }
 
 /* HEADER */
+
 header{
     background:linear-gradient(to right, green, #00c853);
     color:white;
-    padding:48px 9px;
+    padding:50px 20px;
     position:relative;
     text-align:center;
 }
@@ -32,15 +35,12 @@ header{
     top:10px;
 }
 
-.logo a{
-    display:block;
-}
-
 .logo img{
     width:90px;
     height:90px;
     object-fit:cover;
-    border-radius:10px;
+    border-radius:12px;
+    border:3px solid white;
 }
 
 .brand-name{
@@ -49,90 +49,122 @@ header{
     top:110px;
     font-size:14px;
     font-weight:bold;
-    color:#f3f7f3;
+    color:#fff;
 }
+
+/* NAVIGATION */
 
 nav{
     background:#222;
     padding:15px;
-    text-align:center;
 }
 
 nav ul{
     list-style:none;
     display:flex;
     justify-content:center;
+    align-items:center;
     flex-wrap:wrap;
-}
-
-nav ul li{
-    margin:10px 15px;
+    gap:10px;
 }
 
 nav ul li a{
     color:white;
     text-decoration:none;
     font-weight:bold;
+    padding:10px 15px;
+    border-radius:8px;
+    transition:0.3s;
+    display:block;
 }
 
 nav ul li a:hover{
-    color:yellow;
+    background:green;
+    color:white;
 }
 
 /* CONTROLS */
+
 .controls{
-    text-align:center;
-    margin:20px;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+    padding:20px;
 }
 
-.controls input, .controls select{
-    padding:10px;
-    margin:5px;
+.controls input,
+.controls select{
+    padding:12px;
     border-radius:10px;
     border:1px solid #ccc;
+    min-width:220px;
+    outline:none;
+    font-size:15px;
 }
 
-/* PRODUCTS GRID */
+/* PRODUCTS */
+
 .products-container{
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:20px;
     padding:20px;
 }
 
 .product-card{
     background:white;
-    padding:15px;
-    border-radius:12px;
-    text-align:center;
+    border-radius:15px;
+    overflow:hidden;
     box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+    text-align:center;
+    padding-bottom:15px;
+}
+
+.product-card:hover{
+    transform:translateY(-5px);
 }
 
 .product-card img{
     width:100%;
-    height:160px;
+    height:220px;
     object-fit:cover;
-    border-radius:10px;
+}
+
+.product-card h3{
+    margin-top:10px;
+    padding:0 10px;
 }
 
 .price{
     color:orange;
+    font-size:20px;
     font-weight:bold;
+    margin-top:8px;
 }
 
 .small{
-    font-size:13px;
+    font-size:14px;
     color:#555;
+    margin-top:5px;
+    padding:0 10px;
 }
+
+/* BUTTON */
 
 button{
     background:green;
     color:white;
     border:none;
-    padding:8px;
-    margin-top:5px;
+    padding:10px 16px;
+    margin-top:10px;
+    border-radius:8px;
     cursor:pointer;
-    border-radius:6px;
+    transition:0.3s;
+    font-weight:bold;
 }
 
 button:hover{
@@ -140,82 +172,201 @@ button:hover{
 }
 
 /* CART BUTTON */
+
 .cart-button{
     position:fixed;
     bottom:20px;
     right:20px;
     background:green;
     color:white;
-    padding:12px 20px;
-    border-radius:30px;
+    padding:14px 20px;
+    border-radius:40px;
     cursor:pointer;
     box-shadow:0 5px 15px rgba(0,0,0,0.3);
     font-weight:bold;
+    z-index:999;
 }
 
 /* CART POPUP */
+
 .cart-popup{
     position:fixed;
-    bottom:80px;
+    bottom:85px;
     right:20px;
-    width:320px;
-    max-height:300px;
+    width:330px;
+    max-height:400px;
+    overflow-y:auto;
     background:#111;
     color:white;
     padding:15px;
-    border-radius:10px;
-    overflow-y:auto;
+    border-radius:12px;
     display:none;
+    z-index:999;
+}
+
+.cart-popup h3{
+    margin-bottom:15px;
 }
 
 .cart-item{
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap:10px;
     border-bottom:1px solid #444;
-    padding:5px 0;
+    padding:10px 0;
 }
 
 .remove-btn{
     background:red;
-    color:white;
+    padding:5px 8px;
     border:none;
-    padding:3px 6px;
+    color:white;
     border-radius:5px;
     cursor:pointer;
 }
+
+.empty{
+    color:#ccc;
+    text-align:center;
+    padding:15px 0;
+}
+
+/* FOOTER */
+
+footer{
+    background:#000;
+    color:white;
+    text-align:center;
+    padding:30px 20px;
+    margin-top:40px;
+}
+
+footer p{
+    margin:8px 0;
+}
+
+.social-links{
+    margin-top:15px;
+}
+
+.social-links a{
+    color:white;
+    text-decoration:none;
+    margin:0 10px;
+    display:inline-block;
+    margin-top:10px;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media(max-width:768px){
+
+    header{
+        padding-top:140px;
+    }
+
+    .logo{
+        position:absolute;
+        top:15px;
+        left:50%;
+        transform:translateX(-50%);
+    }
+
+    .brand-name{
+        position:static;
+        margin-top:15px;
+        text-align:center;
+    }
+
+    nav ul{
+        flex-direction:column;
+    }
+
+    .controls{
+        flex-direction:column;
+    }
+
+    .controls input,
+    .controls select{
+        width:100%;
+        max-width:350px;
+    }
+
+    .cart-popup{
+        width:90%;
+        right:5%;
+    }
+
+    .product-card img{
+        height:200px;
+    }
+}
+
+@media(max-width:480px){
+
+    header h1{
+        font-size:24px;
+    }
+
+    header p{
+        font-size:14px;
+    }
+
+    .products-container{
+        grid-template-columns:1fr;
+        padding:15px;
+    }
+
+    .product-card{
+        width:100%;
+    }
+
+    .cart-button{
+        padding:12px 16px;
+        font-size:14px;
+    }
+
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
- <div class="logo">
-    <a href="website.html">
-        <img src="image anastase.png">
-    </a>
- </div>
 
- <div class="brand-name">RW-RULINDO AGRO MARKETING</div>
+    <div class="logo">
+        <a href="website.html">
+            <img src="image anastase.png" alt="logo">
+        </a>
+    </div>
 
- <h1>WELCOME TO AGRO MARKETING</h1>
- <p>Your best place for farming business</p>
+    <div class="brand-name">
+        RW-RULINDO AGRO MARKETING
+    </div>
+
+    <h1>WELCOME TO AGRO MARKETING</h1>
+    <p>Your best place for farming business</p>
+
 </header>
 
 <nav>
     <ul>
-       <li><a href="website.html">Home</a></li>
-       <li><a href="shop.html">Shop</a></li>
-       <li><a href="cart.html">Cart</a></li>
-       <li><a href="orders.html">Orders</a></li>
-       <li><a href="about.html">About</a></li>
-       <li><a href="contact.html">Contact</a></li>
-       <li><a href="help.html">help</a></li>
+        <li><a href="website.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="orders.html">Orders</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="help.html">Help</a></li>
     </ul>
 </nav>
 
 <!-- SEARCH + FILTER -->
+
 <div class="controls">
+
     <input type="text" id="search" placeholder="Search product...">
 
     <select id="category">
@@ -232,16 +383,18 @@ button:hover{
         <option value="mid">500 - 1000</option>
         <option value="high">Above 1000</option>
     </select>
+
 </div>
 
-<!-- PRODUCTS (ZAWE ZISUBIYEMO NK’UKO ZARI) -->
+<!-- PRODUCTS -->
+
 <div class="products-container">
 
 <div class="product-card" data-name="Potatoes" data-category="carbohydrate" data-price="400">
 <img src="POTATOES.png">
 <h3>Potatoes - 1kg</h3>
 <p class="price">400 RWF</p>
-<p class="small">Farmer: Jean uwimana</p>
+<p class="small">Farmer: Jean Uwimana</p>
 <button onclick="addToCart('Potatoes',400)">Add to Cart</button>
 </div>
 
@@ -249,7 +402,7 @@ button:hover{
 <img src="BEANS.png">
 <h3>Beans - 1kg</h3>
 <p class="price">700 RWF</p>
-<p class="small">Farmer: pierre habimana</p>
+<p class="small">Farmer: Pierre Habimana</p>
 <button onclick="addToCart('Beans',700)">Add to Cart</button>
 </div>
 
@@ -257,7 +410,7 @@ button:hover{
 <img src="CABBAGE.png">
 <h3>Cabbage - 1kg</h3>
 <p class="price">500 RWF</p>
-<p class="small">Farmer: innocent niyonsaba</p>
+<p class="small">Farmer: Innocent Niyonsaba</p>
 <button onclick="addToCart('Cabbage',500)">Add to Cart</button>
 </div>
 
@@ -265,7 +418,7 @@ button:hover{
 <img src="TOMATOES.PNG">
 <h3>Tomatoes - 1kg</h3>
 <p class="price">600 RWF</p>
-<p class="small">Farmer: eric nshimiyimana</p>
+<p class="small">Farmer: Eric Nshimiyimana</p>
 <button onclick="addToCart('Tomatoes',600)">Add to Cart</button>
 </div>
 
@@ -273,7 +426,7 @@ button:hover{
 <img src="MANGOES.png">
 <h3>Mangoes - 1kg</h3>
 <p class="price">300 RWF</p>
-<p class="small">Farmer: orivier ndayisaba</p>
+<p class="small">Farmer: Olivier Ndayisaba</p>
 <button onclick="addToCart('Mangoes',300)">Add to Cart</button>
 </div>
 
@@ -281,7 +434,7 @@ button:hover{
 <img src="ONIONS.PNG">
 <h3>Onions - 1kg</h3>
 <p class="price">450 RWF</p>
-<p class="small">Farmer: chantal uwase</p>
+<p class="small">Farmer: Chantal Uwase</p>
 <button onclick="addToCart('Onions',450)">Add to Cart</button>
 </div>
 
@@ -289,7 +442,7 @@ button:hover{
 <img src="MAIZE.PNG">
 <h3>Maize - 1kg</h3>
 <p class="price">800 RWF</p>
-<p class="small">Farmer: marie cloudine</p>
+<p class="small">Farmer: Marie Claudine</p>
 <button onclick="addToCart('Maize',800)">Add to Cart</button>
 </div>
 
@@ -297,15 +450,15 @@ button:hover{
 <img src="CASSAVA.PNG">
 <h3>Cassava - 1kg</h3>
 <p class="price">350 RWF</p>
-<p class="small">Farmer: Agnes mukamana</p>
+<p class="small">Farmer: Agnes Mukamana</p>
 <button onclick="addToCart('Cassava',350)">Add to Cart</button>
 </div>
 
 <div class="product-card" data-name="Passion fruits" data-category="fruits" data-price="1200">
 <img src="fruit.jpg">
-<h3>Passion fruits - 1kg</h3>
+<h3>Passion Fruits - 1kg</h3>
 <p class="price">1200 RWF</p>
-<p class="small">Farmer: solange uwitonze</p>
+<p class="small">Farmer: Solange Uwitonze</p>
 <button onclick="addToCart('Passion fruits',1200)">Add to Cart</button>
 </div>
 
@@ -313,113 +466,230 @@ button:hover{
 <img src="VOCADO.PNG">
 <h3>Avocados - 1kg</h3>
 <p class="price">500 RWF</p>
-<p class="small">Farmer: delephine nyirahabimana</p>
+<p class="small">Farmer: Delphine Nyirahabimana</p>
 <button onclick="addToCart('Avocados',500)">Add to Cart</button>
 </div>
 
 </div>
 
 <!-- CART BUTTON -->
+
 <div class="cart-button" onclick="toggleCart()">
 🛒 Cart (<span id="cartCount">0</span>)
 </div>
 
 <!-- CART POPUP -->
+
 <div class="cart-popup" id="cartPopup">
+
 <h3>Your Cart</h3>
+
 <div id="cartItems"></div>
-<p><strong>Total: <span id="total">0</span> RWF</strong></p>
+
+<p style="margin-top:15px;">
+<strong>Total: <span id="total">0</span> RWF</strong>
+</p>
+
 </div>
 
 <script>
+
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+/* ADD TO CART */
+
 function addToCart(name, price){
+
     cart.push({name, price});
+
     localStorage.setItem("cart", JSON.stringify(cart));
+
     updateCart();
+
 }
+
+/* REMOVE ITEM */
 
 function removeItem(index){
+
     cart.splice(index,1);
+
     localStorage.setItem("cart", JSON.stringify(cart));
+
     updateCart();
+
 }
 
+/* UPDATE CART */
+
 function updateCart(){
+
     let box = document.getElementById("cartItems");
     let count = document.getElementById("cartCount");
 
-    box.innerHTML="";
-    let total=0;
+    box.innerHTML = "";
+
+    let total = 0;
+
+    if(cart.length === 0){
+
+        box.innerHTML = `
+        <div class="empty">
+            Cart is empty
+        </div>
+        `;
+
+    }
 
     cart.forEach((item,index)=>{
-        let div=document.createElement("div");
-        div.className="cart-item";
 
-        div.innerHTML=`
-        <span>${item.name}</span>
-        <span>${item.price} RWF</span>
-        <button class="remove-btn" onclick="removeItem(${index})">❌</button>
+        let div = document.createElement("div");
+
+        div.className = "cart-item";
+
+        div.innerHTML = `
+            <div>
+                <strong>${item.name}</strong><br>
+                ${item.price} RWF
+            </div>
+
+            <button class="remove-btn"
+            onclick="removeItem(${index})">
+            ❌
+            </button>
         `;
 
         box.appendChild(div);
-        total+=item.price;
+
+        total += item.price;
+
     });
 
-    document.getElementById("total").textContent=total;
-    count.textContent=cart.length;
+    document.getElementById("total").textContent = total;
+
+    count.textContent = cart.length;
+
 }
+
+/* TOGGLE CART */
 
 function toggleCart(){
-    let popup=document.getElementById("cartPopup");
-    popup.style.display = popup.style.display==="block" ? "none":"block";
+
+    let popup = document.getElementById("cartPopup");
+
+    popup.style.display =
+    popup.style.display === "block"
+    ? "none"
+    : "block";
+
 }
+
+/* FILTER PRODUCTS */
 
 function filterProducts(){
-    let search=document.getElementById("search").value.toLowerCase();
-    let category=document.getElementById("category").value;
-    let price=document.getElementById("price").value;
 
-    document.querySelectorAll(".product-card").forEach(card=>{
-        let name=card.dataset.name.toLowerCase();
-        let cat=card.dataset.category;
-        let pr=parseInt(card.dataset.price);
+    let search =
+    document.getElementById("search")
+    .value.toLowerCase();
 
-        let show=true;
+    let category =
+    document.getElementById("category").value;
 
-        if(!name.includes(search)) show=false;
-        if(category!=="all" && cat!==category) show=false;
+    let price =
+    document.getElementById("price").value;
 
-        if(price==="low" && pr>=500) show=false;
-        if(price==="mid" && (pr<500 || pr>1000)) show=false;
-        if(price==="high" && pr<=1000) show=false;
+    document.querySelectorAll(".product-card")
+    .forEach(card=>{
 
-        card.style.display=show?"block":"none";
+        let name =
+        card.dataset.name.toLowerCase();
+
+        let cat =
+        card.dataset.category;
+
+        let pr =
+        parseInt(card.dataset.price);
+
+        let show = true;
+
+        if(!name.includes(search)){
+            show = false;
+        }
+
+        if(category !== "all" &&
+        cat !== category){
+            show = false;
+        }
+
+        if(price === "low" && pr >= 500){
+            show = false;
+        }
+
+        if(price === "mid" &&
+        (pr < 500 || pr > 1000)){
+            show = false;
+        }
+
+        if(price === "high" &&
+        pr <= 1000){
+            show = false;
+        }
+
+        card.style.display =
+        show ? "block" : "none";
+
     });
+
 }
 
-document.getElementById("search").addEventListener("input",filterProducts);
-document.getElementById("category").addEventListener("change",filterProducts);
-document.getElementById("price").addEventListener("change",filterProducts);
+/* EVENTS */
 
-window.onload=updateCart;
+document.getElementById("search")
+.addEventListener("input", filterProducts);
+
+document.getElementById("category")
+.addEventListener("change", filterProducts);
+
+document.getElementById("price")
+.addEventListener("change", filterProducts);
+
+/* LOAD */
+
+window.onload = updateCart;
+
 </script>
 
-</body>
+<footer>
 
-<footer style="background:#000; color:#fff; text-align:center; padding:20px; margin-top:40px;">
     <p>RW-Rulindo Agro Marketing Cooperative</p>
-    <p>Rulindo District, Northern Province, Rwanda</p>
-    <p>Phone: +250 788 123 456</p>
-    <p>Email: info@rulindooagro.rwa</p>
 
-    <div style="margin-top:15px;">
-        <a href="https://facebook.com" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">📘 Facebook</a>
-        <a href="https://wa.me/250788123456" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">📱 WhatsApp</a>
-        <a href="https://twitter.com" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">🐦 Twitter</a>
-        <a href="https://www.instagram.com/" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">📸 Instagram</a>
+    <p>Rulindo District, Northern Province, Rwanda</p>
+
+    <p>Phone: +250 788 123 456</p>
+
+    <p>Email: info@rulindoagro.rw</p>
+
+    <div class="social-links">
+
+        <a href="https://facebook.com" target="_blank">
+        📘 Facebook
+        </a>
+
+        <a href="https://wa.me/250788123456" target="_blank">
+        📱 WhatsApp
+        </a>
+
+        <a href="https://twitter.com" target="_blank">
+        🐦 Twitter
+        </a>
+
+        <a href="https://instagram.com" target="_blank">
+        📸 Instagram
+        </a>
+
     </div>
+
 </footer>
 
+</body>
 </html>
