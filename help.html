@@ -210,7 +210,84 @@ h2{
         font-size:14px;
     }
 }
+/* THEME BUTTON */
 
+#themeBtn{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:55px;
+    height:55px;
+    border:none;
+    border-radius:50%;
+    background:green;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    z-index:9999;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+    transition:0.3s;
+}
+
+#themeBtn:hover{
+    transform:scale(1.1);
+}
+
+/* DARK MODE */
+
+.dark{
+    background:#121212;
+    color:white;
+}
+
+/* NAVBAR */
+
+.dark nav{
+    background:#2c5e04;
+}
+
+/* HEADER */
+
+.dark header{
+    background:linear-gradient(to right,#000,#222);
+}
+
+/* PRODUCTS */
+
+.dark .item{
+    background:hsl(87, 93%, 32%);
+    color:white;
+}
+
+.dark .item p{
+    color:#101211;
+}
+
+/* SEARCH */
+
+.dark input{
+    background:#dfebfa;
+    color:white;
+    border:1px solid #555;
+}
+
+/* FOOTER */
+
+.dark footer{
+    background:#1d201f;
+}
+
+/* LINKS */
+
+.dark a{
+    color:white;
+}
+
+/* SECTION */
+
+.dark .section{
+    color:white;
+}
 </style>
 </head>
 
@@ -222,7 +299,9 @@ h2{
             <img src="image anastase.png">
         </a>
     </div>
-
+<button id="themeBtn">
+🌙
+</button>
     <div class="brand-name">RW-RULINDO AGRO MARKETING</div>
 
     <h1>WELCOME TO AGRO MARKETING</h1>
@@ -231,13 +310,13 @@ h2{
 
 <nav>
     <ul>
-        <li><a href="website.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="cart.html">Cart</a></li>
-        <li><a href="orders.html">Orders</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="help.html">help</a></li>
+       <li><a href="website.html">🏠 Home</a></li>
+<li><a href="shop.html">🛒 Shop</a></li>
+<li><a href="cart.html">🛍 Cart</a></li>
+<li><a href="orders.html">📦 Orders</a></li>
+<li><a href="about.html">ℹ About</a></li>
+<li><a href="contact.html">📞 Contact</a></li>
+<li><a href="help.html">❓ Help</a></li>
     </ul>
 </nav>
 
@@ -326,7 +405,41 @@ function showAnswer(index){
     document.getElementById("answerBox").innerText =
         faq[index].q + "\n\nAnswer:\n" + faq[index].a;
 }
+const themeBtn = document.getElementById("themeBtn");
 
+/* LOAD SAVED THEME */
+
+if(localStorage.getItem("theme") === "dark"){
+
+    document.body.classList.add("dark");
+
+    themeBtn.innerHTML = "☀️";
+
+}else{
+
+    themeBtn.innerHTML = "🌙";
+}
+
+/* TOGGLE THEME */
+
+themeBtn.addEventListener("click",()=>{
+
+    document.body.classList.toggle("dark");
+
+    if(document.body.classList.contains("dark")){
+
+        localStorage.setItem("theme","dark");
+
+        themeBtn.innerHTML = "☀️";
+
+    }else{
+
+        localStorage.setItem("theme","light");
+
+        themeBtn.innerHTML = "🌙";
+    }
+
+});
 </script>
 
 <footer style="background:#000; color:#fff; text-align:center; padding:20px; margin-top:40px;">
