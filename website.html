@@ -17,6 +17,7 @@
 
 body{
     background:#f2f2f2;
+    overflow-x:hidden;
 }
 
 .container{
@@ -96,97 +97,104 @@ nav ul li a:hover{
     font-size:16px;
 }
 
+/* HERO */
+
+.hero{
+    width:100%;
+    margin:auto;
+    overflow:hidden;
+}
+
 .hero img{
     width:100%;
     height:400px;
     object-fit:cover;
     border-radius:10px;
+    display:block;
+}
+
+/* FIGMA IMAGE FIX */
+
+.figma-image{
+    width:100%;
+    margin-top:20px;
+    overflow-x:auto;
+}
+
+.figma-image img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:15px;
+    object-fit:contain;
+    box-shadow:0 5px 20px rgba(0,0,0,0.15);
 }
 
 .section{
-    padding:50px 0;
+    padding:50px 20px;
     text-align:center;
-}
-
-.section .hero img{
-    width:100%;
-    height:auto;
-    object-fit:contain;
-    display:block;
-    margin:0; 
-    border-radius:0; 
-}
-
-.swiper{
-    width: 100%;
-    height: 500px;
-    margin: 0;
-    border-radius: 0;
-}
-
-.swiper-slide img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.swiper-slide{
-    position:relative;
-}
-
-.swiper-slide p{
-    position:absolute;
-    bottom:20px;
-    left:50%;
-    transform:translateX(-50%);
-    background:rgba(0,0,0,0.5);
-    color:#fff;
-    padding:6px 15px;
-    border-radius:20px;
-    font-size:18px;
 }
 
 /* PRODUCTS */
-.product-grid{
+
+.products-container{
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
-    gap:20px;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
     margin-top:40px;
 }
 
-.item{
-    background:white;
-    padding:15px;
-    border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+.product-card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    transition:0.3s;
+    text-align:center;
+    padding-bottom:15px;
+}
+
+.product-card:hover{
+    transform:translateY(-8px);
+}
+
+.product-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    display:block;
+}
+
+.product-card h3{
+    margin-top:15px;
+    font-size:22px;
+    color:#222;
+}
+
+.product-card p{
+    color:green;
+    font-size:20px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.product-card button{
+    padding:10px 25px;
+    border:none;
+    background:green;
+    color:white;
+    font-size:16px;
+    border-radius:30px;
+    cursor:pointer;
     transition:0.3s;
 }
 
-.item:hover{
-    transform:translateY(8px);
+.product-card button:hover{
+    background:#00c853;
+    transform:scale(1.05);
 }
 
-.item img{
-    width:100%;
-    height:150px;
-    object-fit:cover;
-    border-radius:10px;
-}
-
-.item p{
-    margin-top:10px;
-    color:green;
-    font-weight:bold;
-}
-
-/* FOOTER */
-footer{
-    background:#000;
-    color:#fff;
-    text-align:center;
-    padding:20px;
-    margin-top:40px;
-}
+/* LINKS */
 
 .links ul{
     list-style:none;
@@ -202,85 +210,21 @@ footer{
     text-decoration:none;
 }
 
-/* ========================= */
-/* RESPONSIVE DESIGN ONLY */
-/* ========================= */
+/* FOOTER */
 
-@media (max-width:1024px){
-    .search-box input{
-        width:80%;
-    }
-
-    .swiper{
-        height:400px;
-    }
+footer{
+    background:#000;
+    color:#fff;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
 }
 
-@media (max-width:768px){
-
-    header{
-        padding:30px 10px;
-    }
-
-    .logo img{
-        width:70px;
-        height:70px;
-    }
-
-    .brand-name{
-        top:90px;
-        font-size:12px;
-    }
-
-    nav ul{
-        flex-direction:column;
-    }
-
-    nav ul li{
-        margin:8px 0;
-    }
-
-    .search-box input{
-        width:90%;
-        font-size:14px;
-    }
-
-    .hero img{
-        height:auto;
-    }
-
-    .swiper{
-        height:300px;
-    }
-
-    .swiper-slide p{
-        font-size:14px;
-    }
+footer a{
+    display:inline-block;
+    margin-top:10px;
 }
 
-@media (max-width:480px){
-
-    header h1{
-        font-size:20px;
-    }
-
-    header p{
-        font-size:14px;
-    }
-
-    .logo img{
-        width:60px;
-        height:60px;
-    }
-
-    .swiper{
-        height:220px;
-    }
-
-    .item img{
-        height:120px;
-    }
-}
 /* THEME BUTTON */
 
 #themeBtn{
@@ -311,53 +255,125 @@ footer{
     color:white;
 }
 
-/* NAVBAR */
-
 .dark nav{
     background:#2c5e04;
 }
-
-/* HEADER */
 
 .dark header{
     background:linear-gradient(to right,#000,#222);
 }
 
-/* PRODUCTS */
+.dark .product-card{
+    background:#1e1e1e;
+}
 
-.dark .item{
-    background:hsl(87, 93%, 32%);
+.dark .product-card h3{
     color:white;
 }
 
-.dark .item p{
-    color:#101211;
+.dark .product-card p{
+    color:#00ff88;
 }
 
-/* SEARCH */
-
 .dark input{
-    background:#dfebfa;
+    background:#1f1f1f;
     color:white;
     border:1px solid #555;
 }
-
-/* FOOTER */
 
 .dark footer{
     background:#1d201f;
 }
 
-/* LINKS */
-
 .dark a{
     color:white;
 }
 
-/* SECTION */
+/* RESPONSIVE */
 
-.dark .section{
-    color:white;
+@media(max-width:768px){
+
+    header{
+        padding-top:120px;
+    }
+
+    nav ul{
+        flex-direction:column;
+    }
+
+    .search-box input{
+        width:90%;
+    }
+
+    .hero img{
+        height:250px;
+    }
+
+    .products-container{
+        grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    }
+
+    .product-card img{
+        height:180px;
+    }
+
+    .logo{
+        left:50%;
+        transform:translateX(-50%);
+        top:10px;
+    }
+
+    .brand-name{
+        position:relative;
+        top:0;
+        left:0;
+        margin-top:15px;
+        display:block;
+    }
+
+    .figma-image img{
+        width:100%;
+        height:auto;
+        object-fit:contain;
+    }
+}
+
+@media(max-width:480px){
+
+    .products-container{
+        grid-template-columns:1fr;
+    }
+
+    .product-card img{
+        height:220px;
+    }
+
+    .logo img{
+        width:60px;
+        height:60px;
+    }
+
+    .brand-name{
+        font-size:11px;
+    }
+
+    h1{
+        font-size:24px;
+    }
+
+    .hero img{
+        height:200px;
+    }
+
+    .figma-image{
+        overflow-x:auto;
+    }
+
+    .figma-image img{
+        min-width:700px;
+        width:100%;
+        height:auto;
+    }
 }
 </style>
 </head>
@@ -365,159 +381,273 @@ footer{
 <body>
 
 <header>
-    <div class="logo">
-        <a href="website.html">
-            <img src="image anastase.png">
-        </a>
-    </div>
-<button id="themeBtn">
-🌙
-</button>
-    <div class="brand-name">RW-RULINDO AGRO MARKETING</div>
 
-    <h1>WELCOME TO AGRO MARKETING</h1>
-    <p>Your best place for farming business</p>
+<div class="logo">
+<a href="website.html">
+<img src="image anastase.png">
+</a>
+</div>
+
+<button id="themeBtn">🌙</button>
+
+<div class="brand-name">
+RW-RULINDO AGRO MARKETING
+</div>
+
+<h1>WELCOME TO AGRO MARKETING</h1>
+<p>Your best place for farming business</p>
+
 </header>
 
 <nav>
-    <ul>
-       <li><a href="website.html">🏠 Home</a></li>
+<ul>
+<li><a href="website.html">🏠 Home</a></li>
 <li><a href="shop.html">🛒 Shop</a></li>
 <li><a href="cart.html">🛍 Cart</a></li>
 <li><a href="orders.html">📦 Orders</a></li>
 <li><a href="about.html">ℹ About</a></li>
 <li><a href="contact.html">📞 Contact</a></li>
 <li><a href="help.html">❓ Help</a></li>
-    </ul>
+</ul>
 </nav>
 
 <div class="search-box">
-    <input type="text" id="globalSearch" placeholder="Search anything your product">
+<input type="text" id="globalSearch" placeholder="Search your product">
 </div>
 
-<div class="hero">
-    <img src="image.png">
+<div class="hero container">
+<img src="image.png">
 </div>
+
+<section class="section">
+
+<h2>Our Products</h2>
+
+<div class="products-container">
+
+<div class="product-card">
+<img src="aaa.jpg">
+<h3>Potatoes</h3>
+<p>500 RWF</p>
+<button onclick="addToCart('Potatoes',500,'aaa.jpg')">Add</button>
+</div>
+
+<div class="product-card">
+<img src="bbb.jpg">
+<h3>Maize</h3>
+<p>700 RWF</p>
+<button onclick="addToCart('Maize',700,'bbb.jpg')">Add</button>
+</div>
+
+<div class="product-card">
+<img src="ccc.jpg">
+<h3>Beans</h3>
+<p>400 RWF</p>
+<button onclick="addToCart('Beans',400,'ccc.jpg')">Add</button>
+</div>
+
+<div class="product-card">
+<img src="ddd.jpg">
+<h3>Beans</h3>
+<p>600 RWF</p>
+<button onclick="addToCart('Beans',600,'ddd.jpg')">Add</button>
+</div>
+
+<div class="product-card">
+<img src="eee.jpg">
+<h3>Cassava</h3>
+<p>800 RWF</p>
+<button onclick="addToCart('Cassava',800,'eee.jpg')">Add</button>
+</div>
+
+<div class="product-card">
+<img src="fff.jpg">
+<h3>Cassava</h3>
+<p>300 RWF</p>
+<button onclick="addToCart('Cassava',300,'fff.jpg')">Add</button>
+</div>
+
+<div class="product-card">
+<img src="ggg.jpg">
+<h3>Tomatoes</h3>
+<p>650 RWF</p>
+<button onclick="addToCart('Tomatoes',650,'ggg.jpg')">Add</button>
+</div>
+
+<div class="product-card">
+<img src="hhh.jpg">
+<h3>Onions</h3>
+<p>500 RWF</p>
+<button onclick="addToCart('Onions',500,'hhh.jpg')">Add</button>
+</div>
+
+<div class="product-card">
+<img src="iii.jpg">
+<h3>Cabbage</h3>
+<p>300 RWF</p>
+<button onclick="addToCart('Cabbage',300,'iii.jpg')">Add</button>
+</div>
+
+<div class="product-card">
+<img src="jjj.jpg">
+<h3>Avocados</h3>
+<p>400 RWF</p>
+<button onclick="addToCart('Avocados',400,'jjj.jpg')">Add</button>
+</div>
+
+<div class="product-card">
+<img src="kkk.jpg">
+<h3>Mangoes</h3>
+<p>200 RWF</p>
+<button onclick="addToCart('Mangoes',200,'kkk.jpg')">Add</button>
+</div>
+
+<div class="product-card">
+<img src="fruit.jpg">
+<h3>Fruits</h3>
+<p>500 RWF</p>
+<button onclick="addToCart('Fruits',500,'fruit.jpg')">Add</button>
+</div>
+
+</div>
+
+</section>
 
 <section class="section container">
 
 <h2>RW-Rulindo Agro Marketing</h2>
 
-<div class="hero">
-    <img src="FIGMA.png">
-</div>
-
-<div class="swiper mySwiper">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide"><img src="maiz.png"></div>
-    <div class="swiper-slide"><img src="tomat.png"></div>
-    <div class="swiper-slide"><img src="patat.png"></div>
-  </div>
-</div>
-
-<h2>Some Products</h2>
-
-<div class="product-grid">
-    <div class="item"><img src="aaa.jpg"><p>Potatoes</p></div>
-    <div class="item"><img src="bbb.jpg"><p>Maize</p></div>
-    <div class="item"><img src="ccc.jpg"><p>Beans</p></div>
-    <div class="item"><img src="ddd.jpg"><p>Seeds</p></div>
-    <div class="item"><img src="eee.jpg"><p>Cassava</p></div>
-
-    <div class="item"><img src="TOMATOES.png"><p>Tomatoes</p></div>
-    <div class="item"><img src="MAIZE.png"><p>Maize</p></div>
-    <div class="item"><img src="CABBAGE.png"><p>Cabbage</p></div>
-    <div class="item"><img src="ONIONS.png"><p>Onions</p></div>
-    <div class="item"><img src="BEANS.png"><p>Beans</p></div>
+<div class="figma-image">
+<img src="FIGMA.png">
 </div>
 
 <div class="links">
-    <ul>
-        <li><a href="nest.html">📊 Infographics</a></li>
-        <li><a href="game.html">🎮 Play Game</a></li>
-        <li><a href="sign up.html">🔐sign up</a></li>
-        <li><a href="user guiding manual.html">📘user guiding manual</a></li>
-    </ul>
+<ul>
+<li><a href="nest.html">📊 Infographics</a></li>
+<li><a href="game.html">🎮 Play Game</a></li>
+<li><a href="orders.html">🔐 Sign Up</a></li>
+<li><a href="user guiding manual.html">📘 User Guiding Manual</a></li>
+</ul>
 </div>
 
 </section>
 
 <footer>
-    <p>RW-Rulindo Agro Marketing Cooperative</p>
-    <p>Rulindo District, Northern Province, Rwanda</p>
-    <p>Phone: +250 788 123 456</p>
-    <p>Email: info@rulindooagro.rwa</p>
-     <div style="margin-top:15px;">
-        <a href="https://facebook.com" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">📘 Facebook</a>
-        <a href="https://wa.me/250788123456" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">📱 WhatsApp</a>
-        <a href="https://twitter.com" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">🐦 Twitter</a>
-        <a href="https://www.instagram.com/" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">📸 Instagram</a>
-    </div>
+
+<p>RW-Rulindo Agro Marketing Cooperative</p>
+<p>Rulindo District, Northern Province, Rwanda</p>
+<p>Phone: +250 788 123 456</p>
+<p>Email: info@rulindooagro.rwa</p>
+
+<div style="margin-top:15px;">
+
+<a href="https://facebook.com" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">
+📘 Facebook
+</a>
+
+<a href="https://wa.me/250788123456" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">
+📱 WhatsApp
+</a>
+
+<a href="https://twitter.com" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">
+🐦 Twitter
+</a>
+
+<a href="https://www.instagram.com/" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">
+📸 Instagram
+</a>
+
+</div>
+
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
 <script>
-var swiper = new Swiper(".mySwiper", {
-    loop:true,
-    autoplay:{
-        delay:3000,
-        disableOnInteraction:false
-    }
-});
+
+/* SEARCH */
 
 document.getElementById("globalSearch").addEventListener("input", function(){
-    let value = this.value.toLowerCase();
 
-    document.querySelectorAll(".item, h2, p").forEach(el=>{
-        let text = el.textContent.toLowerCase();
+let value = this.value.toLowerCase();
 
-        if(value === ""){
-            el.style.display = "";
-        } else {
-            if(text.includes(value)){
-                el.style.display = "";
-            } else {
-                el.style.display = "none";
-            }
-        }
-    });
+document.querySelectorAll(".product-card").forEach(card=>{
+
+let text = card.textContent.toLowerCase();
+
+if(text.includes(value)){
+card.style.display = "block";
+}else{
+card.style.display = "none";
+}
+
 });
-const themeBtn = document.getElementById("themeBtn");
 
-/* LOAD SAVED THEME */
+});
 
-if(localStorage.getItem("theme") === "dark"){
+/* ADD TO CART */
 
-    document.body.classList.add("dark");
+function addToCart(name,price,image){
 
-    themeBtn.innerHTML = "☀️";
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let found = cart.find(item => item.name === name);
+
+if(found){
+
+found.quantity += 1;
 
 }else{
 
-    themeBtn.innerHTML = "🌙";
+cart.push({
+name:name,
+price:price,
+image:image,
+quantity:1
+});
+
 }
 
-/* TOGGLE THEME */
+localStorage.setItem("cart", JSON.stringify(cart));
+
+alert(name + " added to cart");
+
+}
+
+/* DARK MODE */
+
+const themeBtn = document.getElementById("themeBtn");
+
+if(localStorage.getItem("theme") === "dark"){
+
+document.body.classList.add("dark");
+
+themeBtn.innerHTML = "☀️";
+
+}else{
+
+themeBtn.innerHTML = "🌙";
+
+}
 
 themeBtn.addEventListener("click",()=>{
 
-    document.body.classList.toggle("dark");
+document.body.classList.toggle("dark");
 
-    if(document.body.classList.contains("dark")){
+if(document.body.classList.contains("dark")){
 
-        localStorage.setItem("theme","dark");
+localStorage.setItem("theme","dark");
 
-        themeBtn.innerHTML = "☀️";
+themeBtn.innerHTML = "☀️";
 
-    }else{
+}else{
 
-        localStorage.setItem("theme","light");
+localStorage.setItem("theme","light");
 
-        themeBtn.innerHTML = "🌙";
-    }
+themeBtn.innerHTML = "🌙";
+
+}
 
 });
+
 </script>
 
 </body>

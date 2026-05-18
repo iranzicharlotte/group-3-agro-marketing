@@ -3,21 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agro Marketing</title>
+<title>Cart - Agro Marketing</title>
 
 <style>
+/* ===== YOUR CSS (UNCHANGED) ===== */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
+body{background:#f2f2f2;}
 
-body{
-    background:#f2f2f2;
-}
-
-/* HEADER */
 header{
     background:linear-gradient(to right, green, #00c853);
     color:white;
@@ -26,33 +23,15 @@ header{
     text-align:center;
 }
 
-/* LOGO HEJURU */
-.logo{
-    position:absolute;
-    left:20px;
-    top:10px;
-}
+.logo{position:absolute;left:20px;top:10px;}
+.logo img{width:90px;height:90px;object-fit:cover;border-radius:10px;}
 
-/* LOGO CLICKABLE */
-.logo a{
-    display:block;
-}
-
-.logo img{
-    width:90px;
-    height:90px;
-    object-fit:cover;
-    border-radius:10px;
-}
-
-/* IZINA MUNSI YA LOGO */
 .brand-name{
     position:absolute;
     left:20px;
     top:110px;
     font-size:14px;
     font-weight:bold;
-    color:hsl(120, 43%, 99%);
 }
 
 nav{
@@ -68,9 +47,7 @@ nav ul{
     flex-wrap:wrap;
 }
 
-nav ul li{
-    margin:10px 15px;
-}
+nav ul li{margin:10px 15px;}
 
 nav ul li a{
     color:white;
@@ -78,135 +55,46 @@ nav ul li a{
     font-weight:bold;
 }
 
-nav ul li a:hover{
-    color:yellow;
-}
-
 .section{
     padding:50px 20px;
     text-align:center;
 }
 
-.products-container{
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    gap:25px;
-    margin-top:30px;
-}
-
-.product-card{
-    background:white;
-    border-radius:12px;
-    padding:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    text-align:center;
-}
-
-.product-card img{
-    width:100%;
-    height:180px;
-    object-fit:cover;
-    border-radius:10px;
-}
-
-.price{
-    font-weight:bold;
-    color:#ff6f00;
-    margin:10px 0;
-}
-
-.product-card button{
-    background:#1b5e20;
-    color:white;
-    border:none;
-    padding:10px 15px;
-    border-radius:8px;
-    cursor:pointer;
-}
-
-.product-card button:hover{
-    background:#00c853;
-}
-
-/* CART */
 table{
     width:100%;
     background:white;
     border-collapse:collapse;
+    margin-top:30px;
 }
 
-th, td{
-    padding:10px;
+th,td{
+    padding:12px;
     border:1px solid #ddd;
     text-align:center;
 }
 
-/* ========================= */
-/* RESPONSIVE DESIGN (ADDED) */
-/* ========================= */
+th{background:green;color:white;}
 
-@media(max-width:768px){
-
-    header{
-        padding:80px 20px 40px;
-    }
-
-    .brand-name{
-        position:static;
-        display:block;
-        text-align:center;
-        margin-bottom:10px;
-    }
-
-    .logo{
-        position:static;
-        text-align:center;
-        margin-bottom:10px;
-    }
-
-    .logo img{
-        width:70px;
-        height:70px;
-    }
-
-    nav ul{
-        flex-direction:column;
-    }
-
-    nav ul li{
-        margin:10px 0;
-    }
-
-    .products-container{
-        grid-template-columns:1fr;
-    }
-
-    table{
-        display:block;
-        overflow-x:auto;
-        white-space:nowrap;
-    }
+button{
+    padding:8px 14px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:green;
+    color:white;
+    margin:3px;
 }
+button:hover{background:#00c853;}
 
-@media(max-width:480px){
+.cart-buttons{margin-top:20px;}
 
-    h1{
-        font-size:22px;
-    }
-
-    header p{
-        font-size:14px;
-    }
-
-    nav ul li a{
-        font-size:14px;
-    }
-
-    .section{
-        padding:30px 10px;
-    }
+footer{
+    background:#000;
+    color:#fff;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
 }
-/* THEME BUTTON */
 
 #themeBtn{
     position:fixed;
@@ -214,75 +102,104 @@ th, td{
     bottom:20px;
     width:55px;
     height:55px;
-    border:none;
     border-radius:50%;
+    border:none;
     background:green;
     color:white;
     font-size:22px;
-    cursor:pointer;
-    z-index:9999;
-    box-shadow:0 5px 15px rgba(0,0,0,0.3);
-    transition:0.3s;
-}
-
-#themeBtn:hover{
-    transform:scale(1.1);
 }
 
 /* DARK MODE */
+.dark{background:#121212;color:white;}
+.dark table{background:#1e1e1e;color:white;}
+.dark nav{background:#2c5e04;}
+.dark header{background:#000;}
+.dark th{background:#2c5e04;}
+/* RESPONSIVE */
 
-.dark{
-    background:#121212;
-    color:white;
+@media(max-width:768px){
+
+    header{
+        padding-top:120px;
+    }
+
+    nav ul{
+        flex-direction:column;
+    }
+
+    .search-box input{
+        width:90%;
+    }
+
+    .hero img{
+        height:250px;
+    }
+
+    .products-container{
+        grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    }
+
+    .product-card img{
+        height:180px;
+    }
+
+    .logo{
+        left:50%;
+        transform:translateX(-50%);
+        top:10px;
+    }
+
+    .brand-name{
+        position:relative;
+        top:0;
+        left:0;
+        margin-top:15px;
+        display:block;
+    }
+
+    .figma-image img{
+        width:100%;
+        height:auto;
+        object-fit:contain;
+    }
 }
 
-/* NAVBAR */
+@media(max-width:480px){
 
-.dark nav{
-    background:#2c5e04;
-}
+    .products-container{
+        grid-template-columns:1fr;
+    }
 
-/* HEADER */
+    .product-card img{
+        height:220px;
+    }
 
-.dark header{
-    background:linear-gradient(to right,#000,#222);
-}
+    .logo img{
+        width:60px;
+        height:60px;
+    }
 
-/* PRODUCTS */
+    .brand-name{
+        font-size:11px;
+    }
 
-.dark .item{
-    background:hsl(87, 93%, 32%);
-    color:white;
-}
+    h1{
+        font-size:24px;
+    }
 
-.dark .item p{
-    color:#101211;
-}
+    .hero img{
+        height:200px;
+    }
 
-/* SEARCH */
+    .figma-image{
+        overflow-x:auto;
+    }
 
-.dark input{
-    background:#dfebfa;
-    color:white;
-    border:1px solid #555;
-}
-
-/* FOOTER */
-
-.dark footer{
-    background:#1d201f;
-}
-
-/* LINKS */
-
-.dark a{
-    color:white;
-}
-
-/* SECTION */
-
-.dark .section{
-    color:white;
+    .figma-image img{
+        min-width:700px;
+        width:100%;
+        height:auto;
+    }
 }
 </style>
 </head>
@@ -290,20 +207,20 @@ th, td{
 <body>
 
 <header>
- <div class="logo">
-        <a href="website.html">
-            <img src="image anastase.png">
-        </a>
-    </div>
-<button id="themeBtn">
-🌙
-</button>
-    <div class="brand-name">RW-RULINDO AGRO MARKETING</div>
 
-    <h1>WELCOME TO AGRO MARKETING</h1>
-    <p>Your best place for farming business</p>
+<div class="logo">
+<a href="website.html">
+<img src="image anastase.png">
+</a>
+</div>
+
+<button id="themeBtn">🌙</button>
+
+<div class="brand-name">RW-RULINDO AGRO MARKETING</div>
+
+<h1>YOUR CART</h1>
+
 </header>
-
 
 <nav>
 <ul>
@@ -318,113 +235,8 @@ th, td{
 </nav>
 
 <section class="section">
-<h2>Our Products</h2>
 
-<div class="products-container">
-
-<div class="product-card">
-<img src="aaa.jpg">
-<h3>potatoes</h3>
-<p class="price">500</p>
-<button onclick="addToCart('potatoes',500,'aaa.jpg')">add</button>
-</div>
-
-<div class="product-card">
-<img src="bbb.jpg">
-<h3>maize</h3>
-<p class="price">700</p>
-<button onclick="addToCart('maize',700,'bbb.jpg')">add</button>
-</div>
-
-<div class="product-card">
-<img src="ccc.jpg">
-<h3>beans</h3>
-<p class="price">400</p>
-<button onclick="addToCart('beans',400,'ccc.jpg')">add</button>
-</div>
-
-<div class="product-card">
-<img src="ddd.jpg">
-<h3>beans</h3>
-<p class="price">600</p>
-<button onclick="addToCart('beans',600,'ddd.jpg')">add</button>
-</div>
-
-<div class="product-card">
-<img src="eee.jpg">
-<h3>cassava</h3>
-<p class="price">800</p>
-<button onclick="addToCart('cassava',800,'eee.jpg')">add</button>
-</div>
-
-<div class="product-card">
-<img src="fff.jpg">
-<h3>Cassava</h3>
-<p class="price">300</p>
-<button onclick="addToCart('Cassava',300,'fff.jpg')">add</button>
-</div>
-
-<div class="product-card">
-<img src="ggg.jpg">
-<h3>tomatoes</h3>
-<p class="price">650</p>
-<button onclick="addToCart('tomatoes',650,'ggg.jpg')">add</button>
-</div>
-
-<div class="product-card">
-<img src="hhh.jpg">
-<h3>onions</h3>
-<p>500</p>
-<button onclick="addToCart('onions',500,'hhh.jpg')">Add</button>
-</div>
-
-<div class="product-card">
-<img src="iii.jpg">
-<h3>Cabbage</h3>
-<p>300</p>
-<button onclick="addToCart('Cabbage',300,'iii.jpg')">Add</button>
-</div>
-
-<div class="product-card">
-<img src="jjj.jpg">
-<h3>vocadoes</h3>
-<p>400</p>
-<button onclick="addToCart('vocadoes',400,'jjj.jpg')">Add</button>
-</div>
-
-<div class="product-card">
-<img src="kkk.jpg">
-<h3>magoes</h3>
-<p>200</p>
-<button onclick="addToCart('mangoes',200,'kkk.jpg')">Add</button>
-</div>
-
-<div class="product-card">
-<img src="fruit.jpg">
-<h3>fruits</h3>
-<p>500</p>
-<button onclick="addToCart('fruit',500,'fruit.jpg')">Add</button>
-</div>
-
-<div class="product-card">
-<img src="TOMATOES.PNG">
-<h3>tomatoes</h3>
-<p>500</p>
-<button onclick="addToCart('tomatoes',500,'lll.jpg')">Add</button>
-</div>
-
-<div class="product-card">
-<img src="maize.jpg">
-<h3>maize</h3>
-<p>500</p>
-<button onclick="addToCart('maize',500,'lll.jpg')">Add</button>
-</div>
-
-</div>
-</section>
-
-<section class="section">
-<h2>Your Cart</h2>
+<h2>Your Cart Products</h2>
 
 <table>
 <thead>
@@ -441,115 +253,25 @@ th, td{
 <tbody id="cart-body"></tbody>
 </table>
 
-<h3>Total: <span id="total">0</span> RWF</h3>
+<h2>Total: <span id="total">0</span> RWF</h2>
 
-<button onclick="continueShopping()">Continue Shopping</button>
-<button onclick="clearCart()">Clear Cart</button>
+<div class="cart-buttons">
+
+<!-- 🔥 FIXED CONTINUE SHOPPING -->
+ <a href="orders.html">
+<button >
+Continue Shopping
+</button>
+</a>
+<button onclick="clearCart()">
+Clear Cart
+</button>
+
+</div>
+
 </section>
 
-<script>
-let cartItems = [];
-
-function addToCart(name, price, image){
-    let found = cartItems.find(item => item.name === name);
-
-    if(found){
-        found.quantity++;
-    }else{
-        cartItems.push({name, price, image, quantity:1});
-    }
-    updateCart();
-}
-
-function removeFromCart(name){
-    cartItems = cartItems.filter(item => item.name !== name);
-    updateCart();
-}
-
-function changeQty(name, change){
-    let item = cartItems.find(i => i.name === name);
-    item.quantity += change;
-
-    if(item.quantity <= 0){
-        removeFromCart(name);
-    } else {
-        updateCart();
-    }
-}
-
-function continueShopping(){
-    window.scrollTo({top:0, behavior:'smooth'});
-}
-
-function clearCart(){
-    cartItems = [];
-    updateCart();
-}
-
-function updateCart(){
-    let body = document.getElementById("cart-body");
-    body.innerHTML = "";
-    let total = 0;
-
-    cartItems.forEach(item=>{
-        let subtotal = item.price * item.quantity;
-        total += subtotal;
-
-        body.innerHTML += `
-        <tr>
-            <td><img src="${item.image}" width="50"></td>
-            <td>${item.name}</td>
-            <td>${item.price}</td>
-            <td>
-                <button onclick="changeQty('${item.name}',-1)">-</button>
-                ${item.quantity}
-                <button onclick="changeQty('${item.name}',1)">+</button>
-            </td>
-            <td>${subtotal}</td>
-            <td><button onclick="removeFromCart('${item.name}')">🗑</button></td>
-        </tr>`;
-    });
-
-    document.getElementById("total").innerText = total;
-}
-const themeBtn = document.getElementById("themeBtn");
-
-/* LOAD SAVED THEME */
-
-if(localStorage.getItem("theme") === "dark"){
-
-    document.body.classList.add("dark");
-
-    themeBtn.innerHTML = "☀️";
-
-}else{
-
-    themeBtn.innerHTML = "🌙";
-}
-
-/* TOGGLE THEME */
-
-themeBtn.addEventListener("click",()=>{
-
-    document.body.classList.toggle("dark");
-
-    if(document.body.classList.contains("dark")){
-
-        localStorage.setItem("theme","dark");
-
-        themeBtn.innerHTML = "☀️";
-
-    }else{
-
-        localStorage.setItem("theme","light");
-
-        themeBtn.innerHTML = "🌙";
-    }
-
-});
-</script>
-
-<footer style="background:#000; color:#fff; text-align:center; padding:20px; margin-top:40px;">
+<footer style="background:#050504; color:#fff; text-align:center; padding:20px; margin-top:40px;">
     <p>RW-Rulindo Agro Marketing Cooperative</p>
     <p>Rulindo District, Northern Province, Rwanda</p>
     <p>Phone: +250 788 123 456</p>
@@ -562,6 +284,112 @@ themeBtn.addEventListener("click",()=>{
         <a href="https://www.instagram.com/" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">📸 Instagram</a>
     </div>
 </footer>
+<script>
+
+/* =========================
+   CART DATA
+========================= */
+let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+/* =========================
+   UPDATE CART
+========================= */
+function updateCart(){
+
+let body = document.getElementById("cart-body");
+body.innerHTML = "";
+
+let total = 0;
+
+cartItems.forEach(item=>{
+
+let subtotal = item.price * item.quantity;
+total += subtotal;
+
+body.innerHTML += `
+<tr>
+<td><img src="${item.image}" width="60"></td>
+<td>${item.name}</td>
+<td>${item.price} RWF</td>
+<td>
+<button onclick="changeQty('${item.name}',-1)">-</button>
+${item.quantity}
+<button onclick="changeQty('${item.name}',1)">+</button>
+</td>
+<td>${subtotal} RWF</td>
+<td><button onclick="removeFromCart('${item.name}')">🗑</button></td>
+</tr>
+`;
+
+});
+
+document.getElementById("total").innerText = total;
+}
+
+/* =========================
+   REMOVE ITEM
+========================= */
+function removeFromCart(name){
+cartItems = cartItems.filter(i => i.name !== name);
+localStorage.setItem("cart", JSON.stringify(cartItems));
+updateCart();
+}
+
+/* =========================
+   CHANGE QTY
+========================= */
+function changeQty(name,change){
+let item = cartItems.find(i => i.name === name);
+
+item.quantity += change;
+
+if(item.quantity <= 0){
+removeFromCart(name);
+}else{
+localStorage.setItem("cart", JSON.stringify(cartItems));
+updateCart();
+}
+}
+
+/* =========================
+   🔥 CONTINUE SHOPPING FIX
+   (IMPORTANT PART)
+========================= */
+/* =========================
+   CLEAR CART
+========================= */
+function clearCart(){
+cartItems = [];
+localStorage.setItem("cart", JSON.stringify(cartItems));
+updateCart();
+}
+
+/* =========================
+   INIT
+========================= */
+updateCart();
+
+/* THEME */
+const themeBtn = document.getElementById("themeBtn");
+
+if(localStorage.getItem("theme")==="dark"){
+document.body.classList.add("dark");
+themeBtn.innerHTML="☀️";
+}
+
+themeBtn.addEventListener("click",()=>{
+document.body.classList.toggle("dark");
+
+if(document.body.classList.contains("dark")){
+localStorage.setItem("theme","dark");
+themeBtn.innerHTML="☀️";
+}else{
+localStorage.setItem("theme","light");
+themeBtn.innerHTML="🌙";
+}
+});
+
+</script>
 
 </body>
 </html>

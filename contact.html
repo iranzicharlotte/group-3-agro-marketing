@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agro Marketing</title>
+<title>Agro Marketing - Contact System</title>
 
 <style>
 *{
@@ -15,9 +15,16 @@
 
 body{
     background:#f2f2f2;
+    overflow-x:hidden;
 }
 
-/* HEADER */
+.container{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    padding:0 15px;
+}
+
 header{
     background:linear-gradient(to right, green, #00c853);
     color:white;
@@ -26,16 +33,10 @@ header{
     text-align:center;
 }
 
-
 .logo{
     position:absolute;
     left:20px;
     top:10px;
-}
-
-
-.logo a{
-    display:block;
 }
 
 .logo img{
@@ -51,7 +52,7 @@ header{
     top:110px;
     font-size:14px;
     font-weight:bold;
-    color:#f3faf3;
+    color:#f0f4f0;
 }
 
 nav{
@@ -81,91 +82,102 @@ nav ul li a:hover{
     color:yellow;
 }
 
-.social a{
+/* CONTACT LAYOUT */
+.contact-wrapper{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    padding:20px;
+}
+
+/* CONTACT CARD */
+.contact-card{
+    flex:2;
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* SOCIAL CARD */
+.social-card{
+    flex:1;
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    min-width:200px;
+}
+
+.social-card a{
     display:block;
-    margin:6px 0;
-    text-decoration:none;
+    margin:10px 0;
     font-weight:bold;
+    text-decoration:none;
 }
 
-
-@media(max-width:768px){
-
-    header{
-        padding:80px 20px 40px;
-    }
-
-    .brand-name{
-        position:static;
-        display:block;
-        text-align:center;
-        margin-bottom:10px;
-    }
-
-    .logo{
-        position:static;
-        text-align:center;
-        margin-bottom:10px;
-    }
-
-    .logo img{
-        width:70px;
-        height:70px;
-    }
-
-    nav ul{
-        flex-direction:column;
-    }
-
-    nav ul li{
-        margin:10px 0;
-    }
-
-    section div{
-        flex-direction:column !important;
-        align-items:center;
-    }
+/* MAIN */
+.container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    justify-content:center;
+    padding:20px;
 }
 
-@media(max-width:480px){
-
-    h1{
-        font-size:22px;
-    }
-
-    header p{
-        font-size:14px;
-    }
-
-    nav ul li a{
-        font-size:14px;
-    }
-
-    input, textarea, button{
-        font-size:14px;
-    }
+.box{
+    flex:1;
+    min-width:280px;
+    background:white;
+    padding:20px;
+    border-radius:10px;
 }
-/* THEME BUTTON */
 
-#themeBtn{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    width:55px;
-    height:55px;
+/* ADMIN */
+#adminPanel{
+    display:none;
+    margin:20px;
+    background:#111;
+    color:white;
+    padding:20px;
+    border-radius:10px;
+}
+
+.msg{
+    background:#222;
+    padding:10px;
+    margin:10px 0;
+    border-radius:8px;
+}
+
+/* BUTTONS */
+button{
+    padding:6px 10px;
+    cursor:pointer;
+    margin-top:5px;
+}
+
+.delete{
+    background:red;
+    color:white;
     border:none;
-    border-radius:50%;
+}
+
+.reply{
     background:green;
     color:white;
-    font-size:22px;
-    cursor:pointer;
-    z-index:9999;
-    box-shadow:0 5px 15px rgba(0,0,0,0.3);
-    transition:0.3s;
+    border:none;
 }
 
-#themeBtn:hover{
-    transform:scale(1.1);
+/* ADMIN BUTTON */
+#adminBtn{
+    display:block;
+    margin:20px auto;
+    padding:10px 20px;
+    background:#111;
+    color:white;
+    border:none;
+    border-radius:6px;
 }
 
 /* DARK MODE */
@@ -175,53 +187,125 @@ nav ul li a:hover{
     color:white;
 }
 
-/* NAVBAR */
-
 .dark nav{
     background:#2c5e04;
 }
-
-/* HEADER */
 
 .dark header{
     background:linear-gradient(to right,#000,#222);
 }
 
-/* PRODUCTS */
+.dark .product-card{
+    background:#1e1e1e;
+}
 
-.dark .item{
-    background:hsl(87, 93%, 32%);
+.dark .product-card h3{
     color:white;
 }
 
-.dark .item p{
-    color:#101211;
+.dark .product-card p{
+    color:#00ff88;
 }
 
-/* SEARCH */
-
 .dark input{
-    background:#dfebfa;
+    background:#1f1f1f;
     color:white;
     border:1px solid #555;
 }
-
-/* FOOTER */
 
 .dark footer{
     background:#1d201f;
 }
 
-/* LINKS */
-
 .dark a{
     color:white;
 }
 
-/* SECTION */
+/* RESPONSIVE */
 
-.dark .section{
-    color:white;
+@media(max-width:768px){
+
+    header{
+        padding-top:120px;
+    }
+
+    nav ul{
+        flex-direction:column;
+    }
+
+    .search-box input{
+        width:90%;
+    }
+
+    .hero img{
+        height:250px;
+    }
+
+    .products-container{
+        grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    }
+
+    .product-card img{
+        height:180px;
+    }
+
+    .logo{
+        left:50%;
+        transform:translateX(-50%);
+        top:10px;
+    }
+
+    .brand-name{
+        position:relative;
+        top:0;
+        left:0;
+        margin-top:15px;
+        display:block;
+    }
+
+    .figma-image img{
+        width:100%;
+        height:auto;
+        object-fit:contain;
+    }
+}
+
+@media(max-width:480px){
+
+    .products-container{
+        grid-template-columns:1fr;
+    }
+
+    .product-card img{
+        height:220px;
+    }
+
+    .logo img{
+        width:60px;
+        height:60px;
+    }
+
+    .brand-name{
+        font-size:11px;
+    }
+
+    h1{
+        font-size:24px;
+    }
+
+    .hero img{
+        height:200px;
+    }
+
+    .figma-image{
+        overflow-x:auto;
+    }
+
+    .figma-image img{
+        min-width:700px;
+        width:100%;
+        height:auto;
+    }
 }
 </style>
 </head>
@@ -229,88 +313,101 @@ nav ul li a:hover{
 <body>
 
 <header>
-    <div class="logo">
-        <a href="website.html">
-            <img src="image anastase.png">
-        </a>
-    </div>
-<button id="themeBtn">
-🌙
-</button>
-    <div class="brand-name">RW-RULINDO AGRO MARKETING</div>
 
-    <h1>WELCOME TO AGRO MARKETING</h1>
-    <p>Your best place for farming business</p>
+<div class="logo">
+<a href="website.html">
+<img src="image anastase.png">
+</a>
+</div>
+<div class="brand-name">
+RW-RULINDO AGRO MARKETING
+</div>
+<h1>WELCOME TO AGRO MARKETING</h1>
+<p>Your best place for farming business</p>
 </header>
 
 <nav>
-    <ul>
-      <li><a href="website.html">🏠 Home</a></li>
+<ul>
+<li><a href="website.html">🏠 Home</a></li>
 <li><a href="shop.html">🛒 Shop</a></li>
 <li><a href="cart.html">🛍 Cart</a></li>
 <li><a href="orders.html">📦 Orders</a></li>
 <li><a href="about.html">ℹ About</a></li>
 <li><a href="contact.html">📞 Contact</a></li>
 <li><a href="help.html">❓ Help</a></li>
-    </ul>
+</ul>
 </nav>
 
-<!-- CONTACT SECTION -->
-<section id="contact" style="padding:40px 20px; background:#fff; margin-top:10px;">
+<!-- DARK MODE BUTTON -->
+<button id="darkBtn" style="position:fixed;top:15px;right:15px;padding:10px;border:none;border-radius:50%;background:#111;color:white;cursor:pointer;">
+🌙
+</button>
 
-<h2 style="text-align:center; color:green; margin-bottom:20px;">Contact Us</h2>
+<!-- CONTACT AREA -->
+<div class="contact-wrapper">
 
-<div style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center;">
+<!-- CONTACT INFO -->
+<div class="contact-card">
 
-    <!-- FORM -->
-    <div style="flex:1; min-width:280px; background:#f9f9f9; padding:20px; border-radius:10px;">
-        <h3>Send Message</h3>
+<h3>Contact Information</h3>
 
-        <form id="contactForm">
-            <input type="text" id="name" placeholder="Name" required
-            style="width:100%; padding:10px; margin:8px 0;">
+<p><b>📍 Address:</b><br>
+RW-Rulindo Agro Marketing Cooperative,<br>
+Rulindo District, Rwanda</p>
 
-            <input type="email" id="email" placeholder="Email" required
-            style="width:100%; padding:10px; margin:8px 0;">
-
-            <input type="text" id="phone" placeholder="Phone" required
-            style="width:100%; padding:10px; margin:8px 0;">
-
-            <textarea id="message" placeholder="Message" required
-            style="width:100%; padding:10px; margin:8px 0; height:100px;"></textarea>
-
-            <button type="submit"
-            style="width:100%; padding:10px; background:green; color:white; border:none; cursor:pointer;">
-                Send Message
-            </button>
-        </form>
-    </div>
-
-    <!-- INFO -->
-    <div style="flex:1; min-width:280px; background:#f9f9f9; padding:20px; border-radius:10px;">
-        <h3>Contact Information</h3>
-
-        <p><b>Address:</b><br>
-        RW-Rulindo Agro Marketing Cooperative,<br>
-        Rulindo District, Northern Province, Rwanda</p>
-
-        <p><b>Phone:</b> +250788123456</p>
-        <p><b>Email:</b> info@rulindoagro.rw</p>
-
-        
-        <div class="social" style="margin-top:15px;">
-            <h4>Follow Us</h4>
-
-            <a href="https://www.facebook.com" target="_blank" style="color:#1877f2;">📘 Facebook</a>
-            <a href="https://wa.me/250788123456" target="_blank" style="color:#25D366;">📱 WhatsApp</a>
-            <a href="https://twitter.com" target="_blank" style="color:#1DA1F2;">🐦 Twitter</a>
-        </div>
-
-    </div>
+<p><b>📞 Phone:</b> +250788123456</p>
+<p><b>📧 Email:</b> info@rulindoagro.rw</p>
 
 </div>
-</section>
 
+<!-- SOCIAL -->
+<div class="social-card">
+
+<h3>Follow Us</h3>
+
+<a href="#" style="color:#1877f2;">📘 Facebook</a>
+<a href="#" style="color:#25D366;">📱 WhatsApp</a>
+<a href="#" style="color:#1DA1F2;">🐦 Twitter</a>
+<a href="#" style="color:#E1306C;">📸 Instagram</a>
+
+</div>
+
+</div>
+
+<!-- USER AREA -->
+<div class="container">
+
+<div class="box">
+<h3>Send Message</h3>
+
+<form id="contactForm">
+<input id="name" placeholder="Name" required style="width:100%;padding:10px;margin:5px 0;">
+<input id="email" placeholder="Email" required style="width:100%;padding:10px;margin:5px 0;">
+<input id="phone" placeholder="Phone (10 digits only)" required style="width:100%;padding:10px;margin:5px 0;">
+<textarea id="message" placeholder="Message" required style="width:100%;padding:10px;margin:5px 0;"></textarea>
+
+<button style="width:100%;padding:10px;background:green;color:white;">
+Send
+</button>
+</form>
+
+</div>
+
+<div class="box">
+<h3>My Messages</h3>
+<div id="userBox"></div>
+</div>
+
+</div>
+
+<!-- ADMIN BUTTON -->
+<button id="adminBtn">OPEN ADMIN PANEL</button>
+
+<!-- ADMIN PANEL -->
+<div id="adminPanel">
+<h2>ADMIN DASHBOARD</h2>
+<div id="adminBox"></div>
+</div>
 <!-- FOOTER -->
 <footer style="background:#000; color:#fff; text-align:center; padding:20px; margin-top:40px;">
 <p>RW-Rulindo Agro Marketing Cooperative</p>
@@ -325,64 +422,123 @@ nav ul li a:hover{
 <a href="https://www.instagram.com/" target="_blank" style="color:white; text-decoration:none; margin:0 10px;">📸 Instagram</a>
 </div>
 </footer>
-
-<!-- JS -->
 <script>
+
+/* DARK MODE */
+let darkBtn = document.getElementById("darkBtn");
+
+darkBtn.onclick = () => {
+    document.body.classList.toggle("dark");
+    darkBtn.innerHTML =
+        document.body.classList.contains("dark") ? "☀️" : "🌙";
+};
+
+/* ADMIN TOGGLE */
+let adminPanel = document.getElementById("adminPanel");
+let adminBtn = document.getElementById("adminBtn");
+
+adminBtn.onclick = () => {
+    adminPanel.style.display =
+        adminPanel.style.display === "block" ? "none" : "block";
+    loadAll();
+};
+
+/* SEND MESSAGE */
 document.getElementById("contactForm").addEventListener("submit", function(e){
     e.preventDefault();
 
-    let data = {
+    let phoneValue = document.getElementById("phone").value;
+
+    if(!/^[0-9]{10}$/.test(phoneValue)){
+        alert("Phone must be 10 digits only!");
+        return;
+    }
+
+    let msg = {
+        id: Date.now(),
         name: document.getElementById("name").value,
         email: document.getElementById("email").value,
-        phone: document.getElementById("phone").value,
-        message: document.getElementById("message").value
+        phone: phoneValue,
+        message: document.getElementById("message").value,
+        reply: ""
     };
 
     let messages = JSON.parse(localStorage.getItem("messages")) || [];
-    messages.push(data);
+    messages.push(msg);
+
     localStorage.setItem("messages", JSON.stringify(messages));
 
-    console.log("Message saved:", data);
-
-    alert("Message sent successfully!");
-
     this.reset();
+    loadAll();
 });
-const themeBtn = document.getElementById("themeBtn");
 
-/* LOAD SAVED THEME */
-
-if(localStorage.getItem("theme") === "dark"){
-
-    document.body.classList.add("dark");
-
-    themeBtn.innerHTML = "☀️";
-
-}else{
-
-    themeBtn.innerHTML = "🌙";
+/* LOAD ALL */
+function loadAll(){
+    let messages = JSON.parse(localStorage.getItem("messages")) || [];
+    loadUser(messages);
+    loadAdmin(messages);
 }
 
-/* TOGGLE THEME */
+/* USER VIEW */
+function loadUser(messages){
+    let box = document.getElementById("userBox");
+    box.innerHTML = "";
 
-themeBtn.addEventListener("click",()=>{
+    messages.forEach(m=>{
+        box.innerHTML += `
+        <div style="background:#eee;padding:10px;margin:10px 0;border-radius:8px;">
+            <p>${m.message}</p>
+            <p style="color:green;">Reply: ${m.reply || "No reply yet"}</p>
+        </div>
+        `;
+    });
+}
 
-    document.body.classList.toggle("dark");
+/* ADMIN VIEW */
+function loadAdmin(messages){
+    let box = document.getElementById("adminBox");
+    box.innerHTML = "";
 
-    if(document.body.classList.contains("dark")){
+    messages.forEach((m,index)=>{
+        box.innerHTML += `
+        <div class="msg">
+            <b>${m.name}</b><br>
+            ${m.email} | ${m.phone}<br><br>
+            <p>${m.message}</p>
 
-        localStorage.setItem("theme","dark");
+            <p style="color:yellow;">Reply: ${m.reply || "none"}</p>
 
-        themeBtn.innerHTML = "☀️";
+            <button class="reply" onclick="replyMsg(${index})">Reply</button>
+            <button class="delete" onclick="deleteMsg(${index})">Delete</button>
+        </div>
+        `;
+    });
+}
 
-    }else{
+/* REPLY FIXED */
+function replyMsg(index){
+    let messages = JSON.parse(localStorage.getItem("messages")) || [];
 
-        localStorage.setItem("theme","light");
-
-        themeBtn.innerHTML = "🌙";
+    let replyText = prompt("Write reply:");
+    if(replyText && replyText.trim() !== ""){
+        messages[index].reply = replyText;
+        localStorage.setItem("messages", JSON.stringify(messages));
+        loadAll();
     }
+}
 
-});
+/* DELETE */
+function deleteMsg(index){
+    let messages = JSON.parse(localStorage.getItem("messages")) || [];
+    messages.splice(index,1);
+    localStorage.setItem("messages", JSON.stringify(messages));
+    loadAll();
+}
+
+loadAll();
+
+
+
 </script>
 
 </body>

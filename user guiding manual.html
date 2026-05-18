@@ -156,6 +156,92 @@ nav ul li a:hover{
 .dark .section{
     color:white;
 }
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    header{
+        padding-top:120px;
+    }
+
+    nav ul{
+        flex-direction:column;
+    }
+
+    .search-box input{
+        width:90%;
+    }
+
+    .hero img{
+        height:250px;
+    }
+
+    .products-container{
+        grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    }
+
+    .product-card img{
+        height:180px;
+    }
+
+    .logo{
+        left:50%;
+        transform:translateX(-50%);
+        top:10px;
+    }
+
+    .brand-name{
+        position:relative;
+        top:0;
+        left:0;
+        margin-top:15px;
+        display:block;
+    }
+
+    .figma-image img{
+        width:100%;
+        height:auto;
+        object-fit:contain;
+    }
+}
+
+@media(max-width:480px){
+
+    .products-container{
+        grid-template-columns:1fr;
+    }
+
+    .product-card img{
+        height:220px;
+    }
+
+    .logo img{
+        width:60px;
+        height:60px;
+    }
+
+    .brand-name{
+        font-size:11px;
+    }
+
+    h1{
+        font-size:24px;
+    }
+
+    .hero img{
+        height:200px;
+    }
+
+    .figma-image{
+        overflow-x:auto;
+    }
+
+    .figma-image img{
+        min-width:700px;
+        width:100%;
+        height:auto;
+    }
+}
 </style>
 </head>
 

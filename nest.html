@@ -184,6 +184,92 @@ footer{
 .dark .section{
     color:white;
 }
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    header{
+        padding-top:120px;
+    }
+
+    nav ul{
+        flex-direction:column;
+    }
+
+    .search-box input{
+        width:90%;
+    }
+
+    .hero img{
+        height:250px;
+    }
+
+    .products-container{
+        grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    }
+
+    .product-card img{
+        height:180px;
+    }
+
+    .logo{
+        left:50%;
+        transform:translateX(-50%);
+        top:10px;
+    }
+
+    .brand-name{
+        position:relative;
+        top:0;
+        left:0;
+        margin-top:15px;
+        display:block;
+    }
+
+    .figma-image img{
+        width:100%;
+        height:auto;
+        object-fit:contain;
+    }
+}
+
+@media(max-width:480px){
+
+    .products-container{
+        grid-template-columns:1fr;
+    }
+
+    .product-card img{
+        height:220px;
+    }
+
+    .logo img{
+        width:60px;
+        height:60px;
+    }
+
+    .brand-name{
+        font-size:11px;
+    }
+
+    h1{
+        font-size:24px;
+    }
+
+    .hero img{
+        height:200px;
+    }
+
+    .figma-image{
+        overflow-x:auto;
+    }
+
+    .figma-image img{
+        min-width:700px;
+        width:100%;
+        height:auto;
+    }
+}
 </style>
 </head>
 
@@ -230,26 +316,148 @@ footer{
 
 <script>
 
+/* RULINDO SECTORS + MAIN CROPS */
+
 const labels = [
-    'Potatoes','Tomatoes','Onions','Avocadoes','Cabbage',
-    'Beans','Maize','Passion Fruits','Mangoes','Cassava'
+'Base','Burega','Bushoki','Buyoga','Cyinzuzi',
+'Cyungo','Kinihira','Kisaro','Masoro','Mbogo',
+'Murambi','Ngoma','Ntarabana','Rukozo','Rusiga',
+'Shyorongi','Tumba'
 ];
 
-const dataValues = [85,60,55,90,80,95,100,65,70,75];
+/* PRODUCTION LEVEL */
 
-/* 🌈 REALISTIC COLORS */
+const dataValues = [
+90,75,85,70,95,
+88,60,80,65,78,
+92,83,68,74,89,
+96,72
+];
+
+/* MAIN CROPS FOR EACH SECTOR */
+
+const crops = [
+'Potatoes',
+'Beans',
+'Maize',
+'Cassava',
+'Tomatoes',
+'Cabbage',
+'Onions',
+'Avocadoes',
+'Passion Fruits',
+'Mangoes',
+'Irish Potatoes',
+'Beans',
+'Maize',
+'Cassava',
+'Vegetables',
+'Tomatoes',
+'Bananas'
+];
+
+/* COLORS */
+
 const colors = [
-    '#D2B48C', // Potatoes
-    '#FF4C4C', // Tomatoes
-    '#FFA500', // Onions
-    '#7CFC00', // Avocado
-    '#228B22', // Cabbage
-    '#8B4513', // Beans
-    '#FFD700', // Maize
-    '#800080', // Passion fruits
-    '#FFB347', // Mangoes
-    '#A0522D'  // Cassava
+'#8B4513',
+'#4CAF50',
+'#FFD700',
+'#A0522D',
+'#FF4C4C',
+'#228B22',
+'#FFA500',
+'#7CFC00',
+'#800080',
+'#FFB347',
+'#D2B48C',
+'#2E8B57',
+'#DAA520',
+'#CD853F',
+'#32CD32',
+'#DC143C',
+'#F4A460'
 ];
+
+new Chart(document.getElementById('barChart'), {
+
+    type:'bar',
+
+    data:{
+        labels:labels,
+
+        datasets:[{
+            label:'Production Level (%)',
+            data:dataValues,
+            backgroundColor:colors,
+            borderColor:'#222',
+            borderWidth:1,
+            borderRadius:8
+        }]
+    },
+
+    options:{
+
+        responsive:true,
+
+        plugins:{
+
+            tooltip:{
+                callbacks:{
+                    label:function(context){
+
+                        let sector = context.label;
+                        let crop = crops[context.dataIndex];
+                        let value = context.raw;
+
+                        return sector + 
+                        ' - Main Crop: ' + crop + 
+                        ' | Production: ' + value + '%';
+                    }
+                }
+            },
+
+            legend:{
+                labels:{
+                    color:'green',
+                    font:{
+                        size:14,
+                        weight:'bold'
+                    }
+                }
+            },
+
+            title:{
+                display:true,
+                text:'🌱 RULINDO DISTRICT AGRICULTURE INFOGRAPH',
+                color:'green',
+                font:{
+                    size:20,
+                    weight:'bold'
+                }
+            }
+        },
+
+        scales:{
+
+            x:{
+                ticks:{
+                    color:'#111',
+                    maxRotation:45,
+                    minRotation:45
+                }
+            },
+
+            y:{
+                beginAtZero:true,
+                max:100,
+
+                ticks:{
+                    color:'#111'
+                }
+            }
+        }
+    }
+});
 
 new Chart(document.getElementById('barChart'), {
     type: 'bar',

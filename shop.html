@@ -171,67 +171,6 @@ button:hover{
     background:#00c853;
 }
 
-/* CART BUTTON */
-
-.cart-button{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:green;
-    color:white;
-    padding:14px 20px;
-    border-radius:40px;
-    cursor:pointer;
-    box-shadow:0 5px 15px rgba(0,0,0,0.3);
-    font-weight:bold;
-    z-index:999;
-}
-
-/* CART POPUP */
-
-.cart-popup{
-    position:fixed;
-    bottom:85px;
-    right:20px;
-    width:330px;
-    max-height:400px;
-    overflow-y:auto;
-    background:#111;
-    color:white;
-    padding:15px;
-    border-radius:12px;
-    display:none;
-    z-index:999;
-}
-
-.cart-popup h3{
-    margin-bottom:15px;
-}
-
-.cart-item{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:10px;
-    border-bottom:1px solid #444;
-    padding:10px 0;
-}
-
-.remove-btn{
-    background:red;
-    padding:5px 8px;
-    border:none;
-    color:white;
-    border-radius:5px;
-    cursor:pointer;
-}
-
-.empty{
-    color:#ccc;
-    text-align:center;
-    padding:15px 0;
-}
-
 /* FOOTER */
 
 footer{
@@ -293,13 +232,12 @@ footer p{
         max-width:350px;
     }
 
-    .cart-popup{
-        width:90%;
-        right:5%;
-    }
-
     .product-card img{
         height:200px;
+    }
+
+    .products-container{
+        grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     }
 }
 
@@ -322,12 +260,20 @@ footer p{
         width:100%;
     }
 
-    .cart-button{
-        padding:12px 16px;
-        font-size:14px;
+    .product-card img{
+        height:230px;
+    }
+
+    nav ul li{
+        width:100%;
+    }
+
+    nav ul li a{
+        width:100%;
     }
 
 }
+
 /* THEME BUTTON */
 
 #themeBtn{
@@ -372,19 +318,24 @@ footer p{
 
 /* PRODUCTS */
 
-.dark .item{
-    background:hsl(87, 93%, 32%);
+.dark .product-card{
+    background:#1f1f1f;
     color:white;
 }
 
-.dark .item p{
-    color:#101211;
+.dark .product-card p{
+    color:#00ff88;
+}
+
+.dark .small{
+    color:#ccc;
 }
 
 /* SEARCH */
 
-.dark input{
-    background:#dfebfa;
+.dark input,
+.dark select{
+    background:#1f1f1f;
     color:white;
     border:1px solid #555;
 }
@@ -401,11 +352,6 @@ footer p{
     color:white;
 }
 
-/* SECTION */
-
-.dark .section{
-    color:white;
-}
 </style>
 </head>
 
@@ -413,55 +359,55 @@ footer p{
 
 <header>
 
-    <div class="logo">
-        <a href="website.html">
-            <img src="image anastase.png" alt="logo">
-        </a>
-    </div>
-<button id="themeBtn">
-🌙
-</button>
-    <div class="brand-name">
-        RW-RULINDO AGRO MARKETING
-    </div>
+<div class="logo">
+<a href="website.html">
+<img src="image anastase.png" alt="logo">
+</a>
+</div>
 
-    <h1>WELCOME TO AGRO MARKETING</h1>
-    <p>Your best place for farming business</p>
+<button id="themeBtn">🌙</button>
+
+<div class="brand-name">
+RW-RULINDO AGRO MARKETING
+</div>
+
+<h1>WELCOME TO AGRO MARKETING</h1>
+<p>Your best place for farming business</p>
 
 </header>
 
 <nav>
-    <ul>
-       <li><a href="website.html">🏠 Home</a></li>
+<ul>
+<li><a href="website.html">🏠 Home</a></li>
 <li><a href="shop.html">🛒 Shop</a></li>
 <li><a href="cart.html">🛍 Cart</a></li>
 <li><a href="orders.html">📦 Orders</a></li>
 <li><a href="about.html">ℹ About</a></li>
 <li><a href="contact.html">📞 Contact</a></li>
 <li><a href="help.html">❓ Help</a></li>
-    </ul>
+</ul>
 </nav>
 
 <!-- SEARCH + FILTER -->
 
 <div class="controls">
 
-    <input type="text" id="search" placeholder="Search product...">
+<input type="text" id="search" placeholder="Search product...">
 
-    <select id="category">
-        <option value="all">All Categories</option>
-        <option value="vegetables">Vegetables</option>
-        <option value="fruits">Fruits</option>
-        <option value="carbohydrate">Carbohydrate</option>
-        <option value="protein">Protein</option>
-    </select>
+<select id="category">
+<option value="all">All Categories</option>
+<option value="vegetables">Vegetables</option>
+<option value="fruits">Fruits</option>
+<option value="carbohydrate">Carbohydrate</option>
+<option value="protein">Protein</option>
+</select>
 
-    <select id="price">
-        <option value="all">All Prices</option>
-        <option value="low">Below 500</option>
-        <option value="mid">500 - 1000</option>
-        <option value="high">Above 1000</option>
-    </select>
+<select id="price">
+<option value="all">All Prices</option>
+<option value="low">Below 500</option>
+<option value="mid">500 - 1000</option>
+<option value="high">Above 1000</option>
+</select>
 
 </div>
 
@@ -474,7 +420,7 @@ footer p{
 <h3>Potatoes - 1kg</h3>
 <p class="price">400 RWF</p>
 <p class="small">Farmer: Jean Uwimana</p>
-<button onclick="addToCart('Potatoes',400)">Add to Cart</button>
+<button onclick="addToCart('Potatoes',400,'POTATOES.png')">Add to Cart</button>
 </div>
 
 <div class="product-card" data-name="Beans" data-category="protein" data-price="700">
@@ -482,7 +428,7 @@ footer p{
 <h3>Beans - 1kg</h3>
 <p class="price">700 RWF</p>
 <p class="small">Farmer: Pierre Habimana</p>
-<button onclick="addToCart('Beans',700)">Add to Cart</button>
+<button onclick="addToCart('Beans',700,'BEANS.png')">Add to Cart</button>
 </div>
 
 <div class="product-card" data-name="Cabbage" data-category="vegetables" data-price="500">
@@ -490,7 +436,7 @@ footer p{
 <h3>Cabbage - 1kg</h3>
 <p class="price">500 RWF</p>
 <p class="small">Farmer: Innocent Niyonsaba</p>
-<button onclick="addToCart('Cabbage',500)">Add to Cart</button>
+<button onclick="addToCart('Cabbage',500,'CABBAGE.png')">Add to Cart</button>
 </div>
 
 <div class="product-card" data-name="Tomatoes" data-category="vegetables" data-price="600">
@@ -498,7 +444,7 @@ footer p{
 <h3>Tomatoes - 1kg</h3>
 <p class="price">600 RWF</p>
 <p class="small">Farmer: Eric Nshimiyimana</p>
-<button onclick="addToCart('Tomatoes',600)">Add to Cart</button>
+<button onclick="addToCart('Tomatoes',600,'TOMATOES.PNG')">Add to Cart</button>
 </div>
 
 <div class="product-card" data-name="Mangoes" data-category="fruits" data-price="300">
@@ -506,7 +452,7 @@ footer p{
 <h3>Mangoes - 1kg</h3>
 <p class="price">300 RWF</p>
 <p class="small">Farmer: Olivier Ndayisaba</p>
-<button onclick="addToCart('Mangoes',300)">Add to Cart</button>
+<button onclick="addToCart('Mangoes',300,'MANGOES.png')">Add to Cart</button>
 </div>
 
 <div class="product-card" data-name="Onions" data-category="vegetables" data-price="450">
@@ -514,7 +460,7 @@ footer p{
 <h3>Onions - 1kg</h3>
 <p class="price">450 RWF</p>
 <p class="small">Farmer: Chantal Uwase</p>
-<button onclick="addToCart('Onions',450)">Add to Cart</button>
+<button onclick="addToCart('Onions',450,'ONIONS.PNG')">Add to Cart</button>
 </div>
 
 <div class="product-card" data-name="Maize" data-category="carbohydrate" data-price="800">
@@ -522,7 +468,7 @@ footer p{
 <h3>Maize - 1kg</h3>
 <p class="price">800 RWF</p>
 <p class="small">Farmer: Marie Claudine</p>
-<button onclick="addToCart('Maize',800)">Add to Cart</button>
+<button onclick="addToCart('Maize',800,'MAIZE.PNG')">Add to Cart</button>
 </div>
 
 <div class="product-card" data-name="Cassava" data-category="carbohydrate" data-price="350">
@@ -530,7 +476,7 @@ footer p{
 <h3>Cassava - 1kg</h3>
 <p class="price">350 RWF</p>
 <p class="small">Farmer: Agnes Mukamana</p>
-<button onclick="addToCart('Cassava',350)">Add to Cart</button>
+<button onclick="addToCart('Cassava',350,'CASSAVA.PNG')">Add to Cart</button>
 </div>
 
 <div class="product-card" data-name="Passion fruits" data-category="fruits" data-price="1200">
@@ -538,7 +484,7 @@ footer p{
 <h3>Passion Fruits - 1kg</h3>
 <p class="price">1200 RWF</p>
 <p class="small">Farmer: Solange Uwitonze</p>
-<button onclick="addToCart('Passion fruits',1200)">Add to Cart</button>
+<button onclick="addToCart('Passion fruits',1200,'fruit.jpg')">Add to Cart</button>
 </div>
 
 <div class="product-card" data-name="Avocados" data-category="fruits" data-price="500">
@@ -546,28 +492,8 @@ footer p{
 <h3>Avocados - 1kg</h3>
 <p class="price">500 RWF</p>
 <p class="small">Farmer: Delphine Nyirahabimana</p>
-<button onclick="addToCart('Avocados',500)">Add to Cart</button>
+<button onclick="addToCart('Avocados',500,'VOCADO.PNG')">Add to Cart</button>
 </div>
-
-</div>
-
-<!-- CART BUTTON -->
-
-<div class="cart-button" onclick="toggleCart()">
-🛒 Cart (<span id="cartCount">0</span>)
-</div>
-
-<!-- CART POPUP -->
-
-<div class="cart-popup" id="cartPopup">
-
-<h3>Your Cart</h3>
-
-<div id="cartItems"></div>
-
-<p style="margin-top:15px;">
-<strong>Total: <span id="total">0</span> RWF</strong>
-</p>
 
 </div>
 
@@ -577,89 +503,28 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 /* ADD TO CART */
 
-function addToCart(name, price){
+function addToCart(name, price, image){
 
-    cart.push({name, price});
+let found = cart.find(item => item.name === name);
 
-    localStorage.setItem("cart", JSON.stringify(cart));
+if(found){
 
-    updateCart();
+found.quantity += 1;
 
-}
+}else{
 
-/* REMOVE ITEM */
-
-function removeItem(index){
-
-    cart.splice(index,1);
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-
-    updateCart();
+cart.push({
+name:name,
+price:price,
+image:image,
+quantity:1
+});
 
 }
 
-/* UPDATE CART */
+localStorage.setItem("cart", JSON.stringify(cart));
 
-function updateCart(){
-
-    let box = document.getElementById("cartItems");
-    let count = document.getElementById("cartCount");
-
-    box.innerHTML = "";
-
-    let total = 0;
-
-    if(cart.length === 0){
-
-        box.innerHTML = `
-        <div class="empty">
-            Cart is empty
-        </div>
-        `;
-
-    }
-
-    cart.forEach((item,index)=>{
-
-        let div = document.createElement("div");
-
-        div.className = "cart-item";
-
-        div.innerHTML = `
-            <div>
-                <strong>${item.name}</strong><br>
-                ${item.price} RWF
-            </div>
-
-            <button class="remove-btn"
-            onclick="removeItem(${index})">
-            ❌
-            </button>
-        `;
-
-        box.appendChild(div);
-
-        total += item.price;
-
-    });
-
-    document.getElementById("total").textContent = total;
-
-    count.textContent = cart.length;
-
-}
-
-/* TOGGLE CART */
-
-function toggleCart(){
-
-    let popup = document.getElementById("cartPopup");
-
-    popup.style.display =
-    popup.style.display === "block"
-    ? "none"
-    : "block";
+alert(name + " added to cart");
 
 }
 
@@ -667,57 +532,57 @@ function toggleCart(){
 
 function filterProducts(){
 
-    let search =
-    document.getElementById("search")
-    .value.toLowerCase();
+let search =
+document.getElementById("search")
+.value.toLowerCase();
 
-    let category =
-    document.getElementById("category").value;
+let category =
+document.getElementById("category").value;
 
-    let price =
-    document.getElementById("price").value;
+let price =
+document.getElementById("price").value;
 
-    document.querySelectorAll(".product-card")
-    .forEach(card=>{
+document.querySelectorAll(".product-card")
+.forEach(card=>{
 
-        let name =
-        card.dataset.name.toLowerCase();
+let name =
+card.dataset.name.toLowerCase();
 
-        let cat =
-        card.dataset.category;
+let cat =
+card.dataset.category;
 
-        let pr =
-        parseInt(card.dataset.price);
+let pr =
+parseInt(card.dataset.price);
 
-        let show = true;
+let show = true;
 
-        if(!name.includes(search)){
-            show = false;
-        }
+if(!name.includes(search)){
+show = false;
+}
 
-        if(category !== "all" &&
-        cat !== category){
-            show = false;
-        }
+if(category !== "all" &&
+cat !== category){
+show = false;
+}
 
-        if(price === "low" && pr >= 500){
-            show = false;
-        }
+if(price === "low" && pr >= 500){
+show = false;
+}
 
-        if(price === "mid" &&
-        (pr < 500 || pr > 1000)){
-            show = false;
-        }
+if(price === "mid" &&
+(pr < 500 || pr > 1000)){
+show = false;
+}
 
-        if(price === "high" &&
-        pr <= 1000){
-            show = false;
-        }
+if(price === "high" &&
+pr <= 1000){
+show = false;
+}
 
-        card.style.display =
-        show ? "block" : "none";
+card.style.display =
+show ? "block" : "none";
 
-    });
+});
 
 }
 
@@ -732,75 +597,75 @@ document.getElementById("category")
 document.getElementById("price")
 .addEventListener("change", filterProducts);
 
-/* LOAD */
+/* DARK MODE */
 
-window.onload = updateCart;
 const themeBtn = document.getElementById("themeBtn");
 
 /* LOAD SAVED THEME */
 
 if(localStorage.getItem("theme") === "dark"){
 
-    document.body.classList.add("dark");
+document.body.classList.add("dark");
 
-    themeBtn.innerHTML = "☀️";
+themeBtn.innerHTML = "☀️";
 
 }else{
 
-    themeBtn.innerHTML = "🌙";
+themeBtn.innerHTML = "🌙";
 }
 
 /* TOGGLE THEME */
 
 themeBtn.addEventListener("click",()=>{
 
-    document.body.classList.toggle("dark");
+document.body.classList.toggle("dark");
 
-    if(document.body.classList.contains("dark")){
+if(document.body.classList.contains("dark")){
 
-        localStorage.setItem("theme","dark");
+localStorage.setItem("theme","dark");
 
-        themeBtn.innerHTML = "☀️";
+themeBtn.innerHTML = "☀️";
 
-    }else{
+}else{
 
-        localStorage.setItem("theme","light");
+localStorage.setItem("theme","light");
 
-        themeBtn.innerHTML = "🌙";
-    }
+themeBtn.innerHTML = "🌙";
+}
 
 });
+
 </script>
 
 <footer>
 
-    <p>RW-Rulindo Agro Marketing Cooperative</p>
+<p>RW-Rulindo Agro Marketing Cooperative</p>
 
-    <p>Rulindo District, Northern Province, Rwanda</p>
+<p>Rulindo District, Northern Province, Rwanda</p>
 
-    <p>Phone: +250 788 123 456</p>
+<p>Phone: +250 788 123 456</p>
 
-    <p>Email: info@rulindoagro.rw</p>
+<p>Email: info@rulindoagro.rw</p>
 
-    <div class="social-links">
+<div class="social-links">
 
-        <a href="https://facebook.com" target="_blank">
-        📘 Facebook
-        </a>
+<a href="https://facebook.com" target="_blank">
+📘 Facebook
+</a>
 
-        <a href="https://wa.me/250788123456" target="_blank">
-        📱 WhatsApp
-        </a>
+<a href="https://wa.me/250788123456" target="_blank">
+📱 WhatsApp
+</a>
 
-        <a href="https://twitter.com" target="_blank">
-        🐦 Twitter
-        </a>
+<a href="https://twitter.com" target="_blank">
+🐦 Twitter
+</a>
 
-        <a href="https://instagram.com" target="_blank">
-        📸 Instagram
-        </a>
+<a href="https://instagram.com" target="_blank">
+📸 Instagram
+</a>
 
-    </div>
+</div>
 
 </footer>
 
